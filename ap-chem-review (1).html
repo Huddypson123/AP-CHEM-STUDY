@@ -1,0 +1,1882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AP Chemistry — Ultimate Review Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0d0f; --surface: #141416; --border: #232329;
+    --text: #e8e8f0; --muted: #7a7a8c;
+    --u1:#4fc3f7; --u2:#a78bfa; --u3:#34d399; --u4:#f97316;
+    --u5:#fb7185; --u6:#facc15; --u7:#86efac; --u8:#c084fc; --u9:#f9a8d4;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--text); font-family:'Space Mono',monospace; font-size:13px; line-height:1.6; }
+
+  /* HEADER */
+  header { padding:50px 40px 32px; border-bottom:1px solid var(--border); position:relative; overflow:hidden; }
+  header::before { content:'AP CHEM'; position:absolute; right:-20px; top:-10px; font-family:'Syne',sans-serif; font-weight:800; font-size:160px; color:rgba(255,255,255,0.02); pointer-events:none; user-select:none; }
+  header h1 { font-family:'Syne',sans-serif; font-weight:800; font-size:38px; letter-spacing:-1px; line-height:1.1; }
+  header h1 span { display:block; background:linear-gradient(90deg,var(--u1),var(--u2),var(--u5)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+  header p { margin-top:10px; color:var(--muted); font-size:11px; letter-spacing:2px; text-transform:uppercase; }
+
+  /* TOP NAV */
+  .top-nav { display:flex; align-items:center; gap:8px; padding:14px 40px; border-bottom:1px solid var(--border); background:rgba(13,13,15,0.95); backdrop-filter:blur(12px); position:sticky; top:0; z-index:200; flex-wrap:wrap; }
+  .nav-btn { font-family:'Syne',sans-serif; font-weight:700; font-size:11px; padding:7px 18px; border-radius:20px; border:1px solid var(--border); cursor:pointer; transition:all 0.2s; background:transparent; color:var(--muted); letter-spacing:.5px; }
+  .nav-btn:hover { color:var(--text); border-color:#555; }
+  .nav-btn.active { background:var(--text); color:var(--bg); border-color:var(--text); }
+  .nav-sep { width:1px; height:20px; background:var(--border); margin:0 4px; }
+
+  /* VIEWS */
+  #view-reference { display:block; }
+  #view-flashcard { display:none; }
+
+  /* REFERENCE: unit nav */
+  .unit-nav { display:flex; flex-wrap:wrap; gap:6px; padding:14px 40px; border-bottom:1px solid var(--border); }
+  .unit-nav a { text-decoration:none; font-size:10px; padding:4px 10px; border-radius:20px; border:1px solid var(--border); color:var(--muted); transition:all 0.2s; font-family:'Syne',sans-serif; font-weight:600; }
+  .unit-nav a:hover { color:var(--text); border-color:#555; }
+
+  /* REFERENCE: cards */
+  main { padding:40px; max-width:1400px; margin:0 auto; }
+  .unit { margin-bottom:56px; }
+  .unit-header { display:flex; align-items:baseline; gap:16px; margin-bottom:20px; padding-bottom:10px; border-bottom:1px solid var(--border); }
+  .unit-number { font-family:'Syne',sans-serif; font-weight:800; font-size:10px; letter-spacing:3px; text-transform:uppercase; padding:4px 10px; border-radius:4px; }
+  .unit-title { font-family:'Syne',sans-serif; font-weight:700; font-size:20px; letter-spacing:-.5px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(310px,1fr)); gap:14px; }
+  .grid-wide { grid-column:1/-1; }
+  .card { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:18px; position:relative; overflow:hidden; transition:border-color 0.2s; }
+  .card:hover { border-color:#3a3a4a; }
+  .card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; }
+  .card h3 { font-family:'Syne',sans-serif; font-weight:700; font-size:12px; letter-spacing:.5px; margin-bottom:10px; text-transform:uppercase; }
+  .formula { background:#0a0a0c; border:1px solid var(--border); border-radius:6px; padding:9px 12px; margin:6px 0; }
+  .formula .eq { font-weight:700; font-size:13px; }
+  .formula .label { display:block; font-size:10px; color:var(--muted); margin-top:2px; letter-spacing:1px; text-transform:uppercase; }
+  ul.notes { list-style:none; display:flex; flex-direction:column; gap:4px; }
+  ul.notes li { padding-left:14px; position:relative; font-size:12px; line-height:1.5; }
+  ul.notes li::before { content:'›'; position:absolute; left:0; color:var(--muted); }
+  .hl { font-weight:700; }
+  .tag { display:inline-block; font-size:10px; padding:2px 8px; border-radius:20px; font-family:'Syne',sans-serif; font-weight:600; }
+  table { width:100%; border-collapse:collapse; font-size:11px; }
+  th { text-align:left; padding:6px 8px; font-family:'Syne',sans-serif; font-weight:700; font-size:10px; letter-spacing:1px; text-transform:uppercase; border-bottom:1px solid var(--border); color:var(--muted); }
+  td { padding:6px 8px; border-bottom:1px solid rgba(255,255,255,0.04); vertical-align:top; }
+  tr:last-child td { border-bottom:none; }
+  .divider { height:1px; background:var(--border); margin:10px 0; }
+  .important { border-radius:6px; padding:9px 12px; margin:6px 0; font-size:12px; border-left:3px solid; }
+  .signs { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border); border-radius:6px; overflow:hidden; margin:6px 0; font-size:11px; text-align:center; }
+  .signs>div { background:var(--surface); padding:7px 4px; }
+  .signs .hdr { background:#0a0a0c; color:var(--muted); font-family:'Syne',sans-serif; font-weight:700; font-size:10px; text-transform:uppercase; letter-spacing:1px; }
+  .c1{color:var(--u1)} .c2{color:var(--u2)} .c3{color:var(--u3)} .c4{color:var(--u4)}
+  .c5{color:var(--u5)} .c6{color:var(--u6)} .c7{color:var(--u7)} .c8{color:var(--u8)} .c9{color:var(--u9)}
+  .n1::before{background:var(--u1)} .n2::before{background:var(--u2)} .n3::before{background:var(--u3)}
+  .n4::before{background:var(--u4)} .n5::before{background:var(--u5)} .n6::before{background:var(--u6)}
+  .n7::before{background:var(--u7)} .n8::before{background:var(--u8)} .n9::before{background:var(--u9)}
+  .tag1{background:rgba(79,195,247,.12);color:var(--u1)} .tag2{background:rgba(167,139,250,.12);color:var(--u2)}
+  .tag3{background:rgba(52,211,153,.12);color:var(--u3)} .tag4{background:rgba(249,115,22,.12);color:var(--u4)}
+  .tag5{background:rgba(251,113,133,.12);color:var(--u5)} .tag6{background:rgba(250,204,21,.12);color:var(--u6)}
+  .tag7{background:rgba(134,239,172,.12);color:var(--u7)} .tag8{background:rgba(192,132,252,.12);color:var(--u8)}
+  .tag9{background:rgba(249,168,212,.12);color:var(--u9)}
+  .bg4{background:rgba(249,115,22,.08);border-color:rgba(249,115,22,.2)}
+
+  /* ══════════════════════════════
+     FLASHCARD SYSTEM
+  ══════════════════════════════ */
+  #view-flashcard { padding:28px 40px 60px; max-width:860px; margin:0 auto; }
+
+  /* filter bar */
+  .fc-filters { display:flex; flex-wrap:wrap; gap:7px; margin-bottom:22px; align-items:center; }
+  .fc-filters .lbl { font-family:'Syne',sans-serif; font-weight:700; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-right:2px; }
+  .fb { font-family:'Syne',sans-serif; font-weight:700; font-size:10px; padding:5px 13px; border-radius:20px; border:1px solid var(--border); cursor:pointer; transition:all 0.2s; background:transparent; color:var(--muted); letter-spacing:.3px; }
+  .fb:hover { color:var(--text); border-color:#555; }
+  .fb.on { color:#0d0d0f; border-color:transparent; }
+  .fb-all.on  { background:var(--text); }
+  .fb-1.on  { background:var(--u1); } .fb-2.on  { background:var(--u2); }
+  .fb-3.on  { background:var(--u3); } .fb-4.on  { background:var(--u4); }
+  .fb-5.on  { background:var(--u5); } .fb-6.on  { background:var(--u6); }
+  .fb-7.on  { background:var(--u7); } .fb-8.on  { background:var(--u8); }
+  .fb-9.on  { background:var(--u9); } .fb-weak.on { background:var(--u5); }
+  .fc-shuffle { font-family:'Syne',sans-serif; font-weight:700; font-size:10px; padding:5px 13px; border-radius:20px; border:1px solid var(--border); cursor:pointer; background:transparent; color:var(--muted); transition:all 0.2s; margin-left:auto; }
+  .fc-shuffle:hover { color:var(--text); border-color:#555; }
+
+  /* progress */
+  .fc-prog-row { display:flex; align-items:center; gap:14px; margin-bottom:18px; }
+  .fc-counter { font-family:'Syne',sans-serif; font-weight:700; font-size:12px; color:var(--muted); min-width:70px; }
+  .fc-bar-outer { flex:1; height:3px; background:var(--border); border-radius:2px; overflow:hidden; }
+  .fc-bar-inner { height:100%; background:linear-gradient(90deg,#34d399,#4fc3f7); border-radius:2px; transition:width .35s ease; width:0%; }
+  .fc-scores { display:flex; gap:12px; font-family:'Syne',sans-serif; font-size:11px; font-weight:700; }
+  .fc-scores span { display:flex; align-items:center; gap:4px; }
+  .dot { width:7px; height:7px; border-radius:50%; display:inline-block; flex-shrink:0; }
+
+  /* ── THE CARD ── */
+  .fc-scene { perspective:1400px; margin-bottom:22px; }
+  .fc-inner {
+    position:relative; width:100%; min-height:300px;
+    transform-style:preserve-3d;
+    transition:transform .5s cubic-bezier(.4,0,.2,1);
+    border-radius:14px; cursor:pointer;
+  }
+  .fc-inner.flipped { transform:rotateY(180deg); }
+  .fc-face {
+    position:absolute; inset:0; min-height:300px;
+    backface-visibility:hidden; -webkit-backface-visibility:hidden;
+    border-radius:14px; border:1px solid var(--border);
+    display:flex; flex-direction:column; overflow:hidden;
+  }
+  .fc-back { transform:rotateY(180deg); background:#101013; }
+  .fc-front { background:var(--surface); }
+  .fc-stripe { height:4px; flex-shrink:0; }
+  .fc-body { flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:40px 48px; text-align:center; gap:14px; }
+  .fc-unit-pill { font-family:'Syne',sans-serif; font-weight:700; font-size:10px; letter-spacing:2px; text-transform:uppercase; padding:3px 12px; border-radius:20px; }
+  .fc-q { font-family:'Syne',sans-serif; font-weight:700; font-size:21px; line-height:1.35; letter-spacing:-.3px; max-width:580px; }
+  .fc-tap { font-size:10px; color:var(--muted); letter-spacing:1.5px; text-transform:uppercase; margin-top:4px; }
+  .fc-ans-lbl { font-family:'Syne',sans-serif; font-weight:700; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); }
+  .fc-ans { font-size:12.5px; line-height:1.75; text-align:left; max-width:620px; width:100%; }
+  .fc-ans code { font-family:'Space Mono',monospace; font-weight:700; font-size:15px; display:block; margin-bottom:8px; }
+  .fc-ans ul { list-style:none; padding:0; display:flex; flex-direction:column; gap:4px; }
+  .fc-ans ul li { padding-left:14px; position:relative; font-size:12px; line-height:1.55; }
+  .fc-ans ul li::before { content:'›'; position:absolute; left:0; color:var(--muted); }
+  .fc-ans b { font-weight:700; }
+
+  /* rating buttons */
+  .fc-rating { display:flex; justify-content:center; gap:12px; flex-wrap:wrap; opacity:0; pointer-events:none; transition:opacity .25s; margin-bottom:4px; }
+  .fc-rating.show { opacity:1; pointer-events:all; }
+  .rbn { font-family:'Syne',sans-serif; font-weight:700; font-size:12px; padding:11px 32px; border-radius:10px; border:1px solid; cursor:pointer; background:transparent; transition:all .15s; letter-spacing:.5px; }
+  .rbn:hover { transform:translateY(-2px); filter:brightness(1.15); }
+  .rbn:active { transform:translateY(0); }
+  .r-miss { color:#fb7185; border-color:rgba(251,113,133,.35); }
+  .r-miss:hover { background:rgba(251,113,133,.1); }
+  .r-iffy { color:#facc15; border-color:rgba(250,204,21,.35); }
+  .r-iffy:hover { background:rgba(250,204,21,.1); }
+  .r-got  { color:#34d399; border-color:rgba(52,211,153,.35); }
+  .r-got:hover  { background:rgba(52,211,153,.1); }
+
+  /* nav */
+  .fc-nav { display:flex; align-items:center; justify-content:center; gap:12px; margin-top:18px; flex-wrap:wrap; }
+  .fc-nbtn { font-family:'Syne',sans-serif; font-weight:700; font-size:12px; padding:9px 24px; border-radius:10px; border:1px solid var(--border); cursor:pointer; background:transparent; color:var(--text); transition:all .15s; letter-spacing:.5px; }
+  .fc-nbtn:hover { background:rgba(255,255,255,.05); border-color:#555; }
+  .fc-nbtn:disabled { opacity:.3; cursor:not-allowed; }
+
+  /* keyboard hint */
+  .kb-hint { text-align:center; font-size:10px; color:var(--muted); margin-top:16px; letter-spacing:.5px; }
+  kbd { font-family:'Space Mono',monospace; background:var(--surface); border:1px solid var(--border); border-radius:3px; padding:1px 5px; font-size:10px; }
+
+  /* done screen */
+  .fc-done { display:none; text-align:center; padding:60px 20px; }
+  .fc-done h2 { font-family:'Syne',sans-serif; font-weight:800; font-size:28px; margin-bottom:10px; }
+  .fc-done p { color:var(--muted); font-size:12px; margin-bottom:26px; }
+  .done-stats { display:flex; gap:18px; justify-content:center; flex-wrap:wrap; margin-bottom:30px; }
+  .done-stat { padding:16px 24px; border-radius:12px; text-align:center; border:1px solid; }
+  .done-stat .num { font-family:'Syne',sans-serif; font-weight:800; font-size:34px; }
+  .done-stat .lbl { font-size:10px; color:var(--muted); font-family:'Syne',sans-serif; letter-spacing:1px; text-transform:uppercase; }
+  .done-btns { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+
+  footer { padding:32px 40px; border-top:1px solid var(--border); color:var(--muted); font-size:11px; text-align:center; letter-spacing:1px; }
+
+  @media(max-width:680px){
+    header,main,#view-flashcard,footer,.top-nav,.unit-nav{ padding-left:16px; padding-right:16px; }
+    header h1 { font-size:26px; }
+    .grid { grid-template-columns:1fr; }
+    .fc-q { font-size:17px; }
+    .fc-body { padding:28px 20px; }
+    .rbn { padding:10px 20px; }
+  }
+
+  /* ════════════════════════════════
+     WALKTHROUGH VIEW
+  ════════════════════════════════ */
+  #view-walkthrough { display:none; }
+  .wt-wrap { max-width:900px; margin:0 auto; padding:40px; }
+
+  /* sidebar + content layout */
+  .wt-layout { display:flex; gap:28px; align-items:flex-start; }
+  .wt-sidebar {
+    width:220px; flex-shrink:0; position:sticky; top:70px;
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:12px; padding:16px; max-height:calc(100vh - 90px); overflow-y:auto;
+  }
+  .wt-sidebar h4 { font-family:'Syne',sans-serif; font-weight:700; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-bottom:12px; }
+  .wt-sidebar a { display:block; font-family:'Syne',sans-serif; font-weight:600; font-size:11px; padding:6px 10px; border-radius:6px; text-decoration:none; color:var(--muted); transition:all .2s; margin-bottom:2px; }
+  .wt-sidebar a:hover { color:var(--text); background:rgba(255,255,255,.04); }
+  .wt-sidebar a.active { color:var(--text); background:rgba(255,255,255,.07); }
+  .wt-sidebar .wt-unit-sep { font-family:'Syne',sans-serif; font-weight:700; font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin:10px 0 4px; padding:0 10px; opacity:.5; }
+
+  /* problem type card */
+  .wt-content { flex:1; min-width:0; }
+  .wt-problem {
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:14px; margin-bottom:24px; overflow:hidden;
+    scroll-margin-top:80px;
+  }
+  .wt-problem-header {
+    display:flex; align-items:center; gap:14px;
+    padding:18px 22px; cursor:pointer; user-select:none;
+    border-bottom:1px solid transparent; transition:border-color .2s;
+  }
+  .wt-problem-header:hover { background:rgba(255,255,255,.02); }
+  .wt-problem.open .wt-problem-header { border-bottom-color:var(--border); }
+  .wt-problem-num { font-family:'Syne',sans-serif; font-weight:800; font-size:11px; width:28px; height:28px; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .wt-problem-title { font-family:'Syne',sans-serif; font-weight:700; font-size:14px; flex:1; }
+  .wt-problem-unit { font-family:'Syne',sans-serif; font-weight:700; font-size:10px; letter-spacing:1px; text-transform:uppercase; color:var(--muted); }
+  .wt-chevron { color:var(--muted); font-size:16px; transition:transform .3s; }
+  .wt-problem.open .wt-chevron { transform:rotate(180deg); }
+
+  .wt-body { display:none; padding:24px 26px; }
+  .wt-problem.open .wt-body { display:block; }
+
+  /* exam question box */
+  .wt-question-box {
+    background:#0a0a0c; border:1px solid var(--border);
+    border-radius:8px; padding:16px 18px; margin-bottom:20px;
+    font-size:12.5px; line-height:1.7; font-style:italic; color:#ccc;
+    border-left:3px solid var(--accent,#4fc3f7);
+  }
+  .wt-question-box .wt-qlabel { display:block; font-family:'Syne',sans-serif; font-weight:700; font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-bottom:6px; font-style:normal; }
+
+  /* steps */
+  .wt-steps { display:flex; flex-direction:column; gap:16px; }
+  .wt-step { display:flex; gap:16px; }
+  .wt-step-num {
+    width:26px; height:26px; border-radius:50%; flex-shrink:0;
+    background:var(--accent,#4fc3f7); color:#0d0d0f;
+    font-family:'Syne',sans-serif; font-weight:800; font-size:11px;
+    display:flex; align-items:center; justify-content:center;
+    margin-top:2px;
+  }
+  .wt-step-content { flex:1; }
+  .wt-step-content h5 { font-family:'Syne',sans-serif; font-weight:700; font-size:12px; margin-bottom:4px; }
+  .wt-step-content p { font-size:12px; line-height:1.65; color:#ccc; }
+  .wt-step-content .math {
+    display:block; font-family:'Space Mono',monospace; font-weight:700;
+    font-size:13px; color:var(--accent,#4fc3f7);
+    background:#0a0a0c; border:1px solid var(--border);
+    border-radius:6px; padding:8px 12px; margin:8px 0;
+  }
+  .wt-step-content .result {
+    display:block; font-family:'Space Mono',monospace; font-weight:700;
+    font-size:13px; color:#34d399;
+    background:rgba(52,211,153,.06); border:1px solid rgba(52,211,153,.2);
+    border-radius:6px; padding:8px 12px; margin:8px 0;
+  }
+  .wt-step-content .warn {
+    font-size:11px; color:#facc15; margin-top:6px; font-style:italic;
+  }
+  .wt-step-content .frq-tip {
+    margin-top:8px; padding:8px 12px; border-radius:6px;
+    background:rgba(192,132,252,.08); border:1px solid rgba(192,132,252,.25);
+    font-size:11px; color:#c084fc; line-height:1.5;
+  }
+  .wt-step-content .frq-tip b { color:#d4aaff; }
+
+  /* answer reveal */
+  .wt-answer-box {
+    margin-top:18px; padding:14px 16px; border-radius:8px;
+    background:rgba(52,211,153,.06); border:1px solid rgba(52,211,153,.25);
+  }
+  .wt-answer-box .albl { font-family:'Syne',sans-serif; font-weight:700; font-size:9px; letter-spacing:2px; text-transform:uppercase; color:#34d399; margin-bottom:6px; display:block; }
+  .wt-answer-box p { font-size:12px; line-height:1.65; color:#b0f0d8; }
+
+  /* FRQ scoring tip */
+  .wt-frq-banner {
+    margin-top:18px; padding:12px 16px; border-radius:8px;
+    background:rgba(250,204,21,.06); border:1px solid rgba(250,204,21,.25);
+    font-size:11px; color:#facc15; line-height:1.6;
+  }
+  .wt-frq-banner b { color:#ffe566; }
+
+  @media(max-width:780px){
+    .wt-layout { flex-direction:column; }
+    .wt-sidebar { width:100%; position:static; max-height:none; }
+    .wt-wrap { padding:20px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AP Chemistry<span>Ultimate Review Guide</span></h1>
+  <p>Units 1–9 · Reference + Flashcards · 12 days to a 5</p>
+</header>
+
+<div class="top-nav">
+  <button class="nav-btn active" id="btn-ref" onclick="showView('reference')">📖 Reference</button>
+  <div class="nav-sep"></div>
+  <button class="nav-btn" id="btn-fc" onclick="showView('flashcard')">🃏 Flashcards</button>
+  <div class="nav-sep"></div>
+  <button class="nav-btn" id="btn-wt" onclick="showView('walkthrough')">🧪 Walkthroughs</button>
+</div>
+
+<!-- ════════════════════════════════════════
+     REFERENCE VIEW
+════════════════════════════════════════ -->
+<div id="view-reference">
+<div class="unit-nav">
+  <a href="#u1">Unit 1</a><a href="#u2">Unit 2</a><a href="#u3">Unit 3</a>
+  <a href="#u4">Unit 4</a><a href="#u5">Unit 5</a><a href="#u6">Unit 6</a>
+  <a href="#u7">Unit 7</a><a href="#u8">Unit 8</a><a href="#u9">Unit 9</a>
+</div>
+<main>
+
+<!-- UNIT 1 -->
+<section class="unit" id="u1">
+  <div class="unit-header"><span class="unit-number tag tag1">Unit 1</span><span class="unit-title c1">Atomic Structure &amp; Properties</span></div>
+  <div class="grid">
+    <div class="card n1"><h3 class="c1">Moles &amp; Molar Mass</h3>
+      <div class="formula"><span class="eq">moles = mass / molar mass</span><span class="label">fundamental conversion</span></div>
+      <ul class="notes"><li>Molarity = mol solute / L solution</li><li>Empirical = smallest ratio; Molecular = actual</li><li>Formula unit = smallest collection of atoms making a compound</li></ul>
+    </div>
+    <div class="card n1"><h3 class="c1">Mass Spectroscopy</h3>
+      <ul class="notes"><li>e⁻ = 0 amu, proton = 1 amu, neutron = 1 amu; atomic # = protons</li><li>Isotopes = same element, different neutrons</li><li>% abundance: x(m₁) + (1−x)(m₂) = avg atomic mass</li><li>y-axis = relative abundance, x-axis = mass # → avg atomic mass</li></ul>
+    </div>
+    <div class="card n1"><h3 class="c1">Electron Configuration</h3>
+      <div class="formula"><span class="eq">Fₑ = kq₁q₂ / r²</span><span class="label">Coulomb's Law</span></div>
+      <ul class="notes"><li>Aufbau → fill increasing energy; Pauli → 2e⁻/orbital opposite spins; Hund's → half-fill first</li><li>Exceptions: Cr, Mo, Cu, Ag (half/full d more stable)</li><li>Valence = s & p; Core = d & f</li></ul>
+    </div>
+    <div class="card n1"><h3 class="c1">Periodic Trends</h3>
+      <ul class="notes"><li><b class="c1">Atomic radius:</b> ↑ down group, ↓ across period</li><li><b class="c1">IE:</b> ↓ down, ↑ across (Group 2A, 5A exceptions)</li><li><b class="c1">Electronegativity:</b> same as IE; larger nuclear charge + smaller atom = higher</li><li><b class="c1">Ionic radius:</b> cations smaller (+), anions larger (−)</li></ul>
+    </div>
+    <div class="card n1"><h3 class="c1">PES</h3>
+      <ul class="notes"><li>E_photon = hν; photoelectric effect → enough energy emits 1 e⁻</li><li>PES → distinguishes orbital energy levels; peak height = # of e⁻ in subshell</li><li>Valence e⁻: low binding energy; Core e⁻: high binding energy</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- UNIT 2 -->
+<section class="unit" id="u2">
+  <div class="unit-header"><span class="unit-number tag tag2">Unit 2</span><span class="unit-title c2">Chemical Bonds</span></div>
+  <div class="grid">
+    <div class="card n2"><h3 class="c2">Bond Types</h3>
+      <ul class="notes"><li><b class="c2">Ionic:</b> large ΔEN, metal+nonmetal, transfers e⁻</li><li><b class="c2">Covalent:</b> shares e⁻, nonmetal+nonmetal (polar or nonpolar)</li><li><b class="c2">Metallic:</b> sea of e⁻, good conductor, malleable</li></ul>
+    </div>
+    <div class="card n2"><h3 class="c2">Lewis Structures &amp; Formal Charge</h3>
+      <ul class="notes"><li>FC = VE − nonbonding e⁻ − ½(bonding e⁻)</li><li>FC closest to 0 = most stable; draw ALL resonance structures</li><li>Resonance → delocalized e⁻, more stable</li></ul>
+    </div>
+    <div class="card n2"><h3 class="c2">VSEPR Table</h3>
+      <table><tr><th>Domains</th><th>Shape</th><th>Angle</th><th>Hybrid</th></tr>
+        <tr><td>2</td><td>Linear</td><td>180°</td><td>sp</td></tr>
+        <tr><td>3 (0 LP)</td><td>Trig. Planar</td><td>120°</td><td>sp²</td></tr>
+        <tr><td>3 (1 LP)</td><td>Bent</td><td>~119°</td><td>sp²</td></tr>
+        <tr><td>4 (0 LP)</td><td>Tetrahedral</td><td>109.5°</td><td>sp³</td></tr>
+        <tr><td>4 (1 LP)</td><td>Trig. Pyramidal</td><td>107.5°</td><td>sp³</td></tr>
+        <tr><td>4 (2 LP)</td><td>Bent</td><td>104.5°</td><td>sp³</td></tr>
+        <tr><td>5 (0 LP)</td><td>Trig. Bipyramidal</td><td>90°/120°</td><td>sp³d</td></tr>
+        <tr><td>6 (0 LP)</td><td>Octahedral</td><td>90°</td><td>sp³d²</td></tr>
+        <tr><td>6 (2 LP)</td><td>Square Planar</td><td>90°</td><td>sp³d²</td></tr>
+      </table>
+    </div>
+    <div class="card n2"><h3 class="c2">Bond Properties</h3>
+      <ul class="notes"><li>Single=1σ; Double=1σ+1π; Triple=1σ+2π</li><li>Higher bond order → shorter + stronger</li><li>Lone pairs repel more → compress bond angles</li></ul>
+    </div>
+    <div class="card n2"><h3 class="c2">Crystalline Solids</h3>
+      <ul class="notes"><li><b class="c2">Ionic:</b> high MP, brittle, conducts when molten/dissolved</li><li><b class="c2">Metallic:</b> conducts as solid, malleable</li><li><b class="c2">Covalent network:</b> very high MP, poor conductor (diamond, SiO₂)</li><li><b class="c2">Molecular:</b> low MP, poor conductor, held by IMFs</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- UNIT 3 -->
+<section class="unit" id="u3">
+  <div class="unit-header"><span class="unit-number tag tag3">Unit 3</span><span class="unit-title c3">IMFs &amp; Properties of Matter</span></div>
+  <div class="grid">
+    <div class="card n3"><h3 class="c3">IMFs (weakest → strongest)</h3>
+      <ul class="notes"><li><b>LDF:</b> all molecules; larger molecule = stronger</li><li><b>Dipole-Dipole:</b> polar molecules only</li><li><b>H-Bonding:</b> N, O, or F bonded to H</li><li><b>Ion-Dipole:</b> ion + polar molecule; strongest</li><li>Stronger IMF → higher BP, viscosity, surface tension</li></ul>
+    </div>
+    <div class="card n3"><h3 class="c3">Ideal Gas Law</h3>
+      <div class="formula"><span class="eq">PV = nRT</span><span class="label">R = 0.0821 L·atm/mol·K; T in Kelvin</span></div>
+      <div class="formula"><span class="eq">P₁V₁/T₁ = P₂V₂/T₂</span><span class="label">Combined Gas Law</span></div>
+      <ul class="notes"><li>STP: 273 K, 1 atm → 22.4 L/mol</li><li>Dalton's Law: P_total = P₁ + P₂ + …; Pₐ = Xₐ × P_total</li></ul>
+    </div>
+    <div class="card n3"><h3 class="c3">Kinetic Molecular Theory</h3>
+      <ul class="notes"><li>Constant random motion, elastic collisions, no IMFs (ideal)</li><li>KE_avg = (3/2)RT → proportional to T only</li><li>Maxwell-Boltzmann: higher T → curve shifts right, flattens</li><li>Lighter molecule → faster; heavier → slower (effusion/diffusion)</li></ul>
+    </div>
+    <div class="card n3"><h3 class="c3">Real Gas Deviations</h3>
+      <ul class="notes"><li>High P → molecular volume matters → real V &gt; ideal V</li><li>Low T → attractions significant → real P &lt; ideal P</li><li>van der Waals equation corrects for both</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- UNIT 4 -->
+<section class="unit" id="u4">
+  <div class="unit-header"><span class="unit-number tag tag4">Unit 4</span><span class="unit-title c4">Chemical Reactions</span></div>
+  <div class="grid">
+    <div class="card n4"><h3 class="c4">Reaction Types</h3>
+      <ul class="notes"><li>Synthesis: A+B→AB; Decomposition: AB→A+B</li><li>Single/Double Replacement; Combustion: CₓHᵧ+O₂→CO₂+H₂O</li><li>Precipitation, Acid-Base (proton), Redox (electron)</li></ul>
+    </div>
+    <div class="card n4"><h3 class="c4">Stoichiometry &amp; Yield</h3>
+      <ul class="notes"><li>Mole ratio from balanced equation</li><li>Limiting reagent determines theoretical yield</li><li>% yield = (actual / theoretical) × 100</li><li>Moles = M × L for solutions</li></ul>
+    </div>
+    <div class="card n4"><h3 class="c4">Net Ionic Equations</h3>
+      <ul class="notes"><li>Break strong acids, bases, soluble salts into ions</li><li>Weak acids/bases stay molecular</li><li>Cancel spectator ions → net ionic equation</li></ul>
+    </div>
+    <div class="card n4"><h3 class="c4">Redox &amp; Balancing</h3>
+      <ul class="notes"><li>OIL RIG / LEO says GER (e⁻ transfer)</li><li>Acidic: balance O w/ H₂O, H w/ H⁺, charge w/ e⁻</li><li>Basic: do acidic first, then add OH⁻ to both sides</li></ul>
+      <div class="important bg4"><b class="c4">Ox # rules:</b> O=−2, H=+1, sum neutral=0, sum ion=charge</div>
+    </div>
+    <div class="card n4"><h3 class="c4">Titration</h3>
+      <div class="formula"><span class="eq">MₐVₐ = M_bV_b</span><span class="label">at equivalence point</span></div>
+      <ul class="notes"><li>Equivalence point: mol acid = mol base</li><li>Endpoint ≈ equivalence point (indicator color change)</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- UNIT 5 -->
+<section class="unit" id="u5">
+  <div class="unit-header"><span class="unit-number tag tag5">Unit 5</span><span class="unit-title c5">Kinetics</span></div>
+  <div class="grid">
+    <div class="card n5"><h3 class="c5">Rate Laws</h3>
+      <div class="formula"><span class="eq">rate = k[A]ᵐ[B]ⁿ</span><span class="label">orders from experiment, NOT coefficients</span></div>
+      <table><tr><th>Order</th><th>Integrated</th><th>Plot</th><th>t½</th></tr>
+        <tr><td>Zero</td><td>[A]=[A]₀−kt</td><td>[A] vs t</td><td>[A]₀/2k</td></tr>
+        <tr><td>First</td><td>ln[A]=ln[A]₀−kt</td><td>ln[A] vs t</td><td>0.693/k ✓const</td></tr>
+        <tr><td>Second</td><td>1/[A]=1/[A]₀+kt</td><td>1/[A] vs t</td><td>1/k[A]₀</td></tr>
+      </table>
+    </div>
+    <div class="card n5"><h3 class="c5">Collision Theory &amp; Arrhenius</h3>
+      <div class="formula"><span class="eq">k = Ae^(−Ea/RT)</span><span class="label">Arrhenius equation</span></div>
+      <ul class="notes"><li>Collision needs: energy ≥ Eₐ AND correct orientation</li><li>↑ T, ↑ conc, ↑ surface area, catalyst → all increase rate</li><li>Catalyst → lowers Eₐ equally for forward and reverse</li></ul>
+    </div>
+    <div class="card n5"><h3 class="c5">Mechanisms</h3>
+      <ul class="notes"><li>Rate-determining step = slowest → dictates overall rate law</li><li>Intermediate: produced then consumed, NOT in overall equation</li><li>Catalyst: appears early, regenerated later, NOT in overall equation</li><li>Proposed mechanism rate law must match experimental</li></ul>
+    </div>
+    <div class="card n5"><h3 class="c5">Energy Profiles</h3>
+      <ul class="notes"><li>Peak = transition state; Valley = intermediate</li><li>ΔH = energy(products) − energy(reactants)</li><li>Catalyst: lowers BOTH Eₐ(fwd) and Eₐ(rev) equally; ΔH unchanged</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- UNIT 6 -->
+<section class="unit" id="u6">
+  <div class="unit-header"><span class="unit-number tag tag6">Unit 6</span><span class="unit-title c6">Thermodynamics</span></div>
+  <div class="grid">
+    <div class="card n6"><h3 class="c6">Heat &amp; Calorimetry</h3>
+      <div class="formula"><span class="eq">q = mcΔT</span><span class="label">c(water) = 4.184 J/g·°C; q_rxn = −q_solution</span></div>
+      <ul class="notes"><li>Endothermic: +q_rxn; Exothermic: −q_rxn</li><li>Coffee cup calorimeter = constant P → ΔH; Bomb = constant V</li><li>Bond breaking = endo; Bond forming = exo</li></ul>
+    </div>
+    <div class="card n6"><h3 class="c6">Enthalpy &amp; Hess's Law</h3>
+      <div class="formula"><span class="eq">ΔH°rxn = ΣΔH°f(products) − ΣΔH°f(reactants)</span></div>
+      <div class="formula"><span class="eq">ΔH°rxn = Σ(BE broken) − Σ(BE formed)</span></div>
+      <ul class="notes"><li>ΔH°f elements in standard state = 0</li><li>Reverse → flip sign; multiply → multiply ΔH; add → add ΔH</li></ul>
+    </div>
+    <div class="card n6"><h3 class="c6">Entropy &amp; Gibbs Free Energy</h3>
+      <div class="formula"><span class="eq">ΔG° = ΔH° − TΔS° = −RT ln K = −nFE°</span></div>
+      <ul class="notes"><li>ΔG &lt; 0 → spontaneous; ΔG = 0 → equilibrium; ΔG &gt; 0 → nonspontaneous</li><li>+ΔS: gas &gt; liquid &gt; solid; more moles of gas product</li></ul>
+      <div class="signs">
+        <div class="hdr">ΔH</div><div class="hdr">ΔS</div><div class="hdr">ΔG</div><div class="hdr">Spont?</div>
+        <div>−</div><div>+</div><div>always −</div><div>Always</div>
+        <div>+</div><div>−</div><div>always +</div><div>Never</div>
+        <div>−</div><div>−</div><div>− low T</div><div>Low T</div>
+        <div>+</div><div>+</div><div>− high T</div><div>High T</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UNIT 7 -->
+<section class="unit" id="u7">
+  <div class="unit-header"><span class="unit-number tag tag7">Unit 7</span><span class="unit-title c7">Equilibrium</span></div>
+  <div class="grid">
+    <div class="card n7"><h3 class="c7">Equilibrium Constant</h3>
+      <div class="formula"><span class="eq">Kc = [C]^c[D]^d / [A]^a[B]^b</span></div>
+      <ul class="notes"><li>K changes only with temperature; solids &amp; pure liquids excluded</li><li>K&gt;&gt;1 → products favored; K&lt;&lt;1 → reactants favored</li><li>Dynamic: forward rate = reverse rate (still occurring)</li></ul>
+    </div>
+    <div class="card n7"><h3 class="c7">Q vs K &amp; ICE Tables</h3>
+      <ul class="notes"><li>Q &lt; K → shift right; Q &gt; K → shift left; Q = K → equilibrium</li><li>ICE: I=initial, C=±x × stoich coeff, E=equilibrium</li><li>Drop x when x/[A]₀ &lt; 5% (small x approx.)</li></ul>
+    </div>
+    <div class="card n7"><h3 class="c7">Le Châtelier's Principle</h3>
+      <ul class="notes"><li>↑ reactant → right; ↑ product → left</li><li>↑ T: exo → left; endo → right</li><li>↑ P / ↓ V → fewer moles of gas side</li><li>Catalyst → no shift; Inert gas at const V → no effect</li></ul>
+    </div>
+    <div class="card n7"><h3 class="c7">Ksp &amp; Common Ion Effect</h3>
+      <div class="formula"><span class="eq">Ksp = [cation]^x[anion]^y</span></div>
+      <ul class="notes"><li>Concentrations start at 0 in ICE; use coefficients as exponents AND x-multipliers</li><li>Common ion → shifts left → suppresses solubility</li><li>Acidic solution → ↑ solubility of basic salts</li></ul>
+    </div>
+    <div class="card n7"><h3 class="c7">Manipulating K</h3>
+      <table><tr><th>Manipulation</th><th>K effect</th><th>ΔH effect</th></tr>
+        <tr><td>Multiply by n</td><td>Kⁿ</td><td>n·ΔH</td></tr>
+        <tr><td>Reverse</td><td>1/K</td><td>−ΔH</td></tr>
+        <tr><td>Add reactions</td><td>K₁·K₂</td><td>ΔH₁+ΔH₂</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- UNIT 8 -->
+<section class="unit" id="u8">
+  <div class="unit-header"><span class="unit-number tag tag8">Unit 8</span><span class="unit-title c8">Acid-Base Equilibria</span></div>
+  <div class="grid">
+    <div class="card n8"><h3 class="c8">pH &amp; pOH</h3>
+      <div class="formula"><span class="eq">pH=−log[H₃O⁺]  pOH=−log[OH⁻]  pH+pOH=14</span></div>
+      <div class="formula"><span class="eq">Kw = 1×10⁻¹⁴ @ 25°C</span></div>
+      <ul class="notes"><li>Strong acids: HCl, HBr, HI, HNO₃, H₂SO₄, HClO₃, HClO₄</li><li>Strong bases: NaOH, KOH, LiOH, Ca(OH)₂, Ba(OH)₂, Sr(OH)₂</li></ul>
+    </div>
+    <div class="card n8"><h3 class="c8">Ka, Kb &amp; Conjugate Pairs</h3>
+      <div class="formula"><span class="eq">Ka=[H₃O⁺][A⁻]/[HA]  Kb=[OH⁻][HB⁺]/[B]</span></div>
+      <div class="formula"><span class="eq">Ka × Kb = Kw = 1×10⁻¹⁴</span><span class="label">conjugate pairs</span></div>
+      <ul class="notes"><li>pKa = −log Ka; smaller pKa → stronger acid</li><li>% ionization = [H⁺]eq / [HA]₀ × 100</li></ul>
+    </div>
+    <div class="card n8"><h3 class="c8">Buffers &amp; Henderson-Hasselbalch</h3>
+      <div class="formula"><span class="eq">pH = pKa + log([A⁻]/[HA])</span></div>
+      <ul class="notes"><li>Buffer = weak acid + conjugate base; resists pH change</li><li>Max buffering: pH = pKa, [HA] = [A⁻] (half-equivalence point)</li><li>More conj. base → ↑ capacity for acid; More conj. acid → ↑ for base</li></ul>
+    </div>
+    <div class="card n8"><h3 class="c8">Titration Types</h3>
+      <ul class="notes"><li>SA + SB → just stoich (BCA)</li><li>WA + SB → BCA → ICE → Henderson-Hasselbalch</li><li>WB + SA → BCA → ICE → H-H with Kb</li><li>Equiv point: MₐVₐ = M_bV_b; half-equiv: pH = pKa</li><li>Indicator: pKa ≈ pH at equivalence point ± 1</li></ul>
+    </div>
+    <div class="card n8"><h3 class="c8">Acid Strength &amp; Structure</h3>
+      <ul class="notes"><li>Stronger H-X bond → weaker acid; HF &lt; HCl &lt; HBr &lt; HI</li><li>More oxygens in oxyacid → stronger acid (more EN = weaker O-H)</li><li>Resonance stabilization of conjugate base → stronger acid</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- UNIT 9 -->
+<section class="unit" id="u9">
+  <div class="unit-header"><span class="unit-number tag tag9">Unit 9</span><span class="unit-title c9">Electrochemistry</span></div>
+  <div class="grid">
+    <div class="card n9"><h3 class="c9">Galvanic Cells</h3>
+      <ul class="notes"><li>Spontaneous redox → electrical energy</li><li>Anode = oxidation (−); Cathode = reduction (+) → Red Cat, An Ox</li><li>e⁻ flow: anode → wire → cathode; salt bridge maintains neutrality</li></ul>
+    </div>
+    <div class="card n9"><h3 class="c9">Cell Potential</h3>
+      <div class="formula"><span class="eq">E°cell = E°cathode − E°anode</span></div>
+      <ul class="notes"><li>E°cell &gt; 0 → spontaneous; intensive property (don't multiply by n)</li><li>More positive reduction potential → stronger oxidizing agent</li></ul>
+    </div>
+    <div class="card n9"><h3 class="c9">ΔG°, K, and E°cell</h3>
+      <div class="formula"><span class="eq">ΔG° = −nFE°cell = −RT ln K</span><span class="label">F = 96,485 C/mol</span></div>
+      <ul class="notes"><li>Positive E° ↔ negative ΔG° ↔ K &gt; 1 → all = spontaneous</li></ul>
+    </div>
+    <div class="card n9"><h3 class="c9">Nernst Equation</h3>
+      <div class="formula"><span class="eq">Ecell = E°cell − (0.0592/n) log Q  @ 25°C</span></div>
+      <ul class="notes"><li>Use for non-standard conditions (conc ≠ 1 M)</li><li>At equilibrium: Ecell = 0, Q = K</li></ul>
+    </div>
+    <div class="card n9"><h3 class="c9">Electrolytic Cells &amp; Faraday</h3>
+      <div class="formula"><span class="eq">mol e⁻ = (A × s) / 96485</span><span class="label">1 A = 1 C/s</span></div>
+      <ul class="notes"><li>Non-spontaneous → requires external electrical energy</li><li>Anode = oxidation (+), Cathode = reduction (−) ← signs flip vs galvanic</li><li>Used for electroplating, water electrolysis, metal purification</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="unit">
+  <div class="unit-header"><span class="unit-number tag" style="background:rgba(255,255,255,.06);color:#aaa">Links</span><span class="unit-title" style="color:#aaa">Cross-Unit Connections</span></div>
+  <div class="grid">
+    <div class="card grid-wide" style="border-color:#2a2a35">
+      <h3 style="color:#aaa">The ΔG° Triangle (Units 6, 7, 9)</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin:10px 0">
+        <div class="formula"><span class="eq c6">ΔG° = ΔH° − TΔS°</span><span class="label">Gibbs (U6)</span></div>
+        <div class="formula"><span class="eq c7">ΔG° = −RT ln K</span><span class="label">Equilibrium (U7)</span></div>
+        <div class="formula"><span class="eq c9">ΔG° = −nFE°</span><span class="label">Electrochemistry (U9)</span></div>
+      </div>
+      <div class="divider"></div>
+      <ul class="notes" style="columns:2;gap:20px">
+        <li>Spontaneous: ΔG° &lt; 0 = K &gt; 1 = E°cell &gt; 0</li>
+        <li>ICE tables → Units 7 AND 8</li>
+        <li>Le Châtelier → Units 7 AND 8 (buffers)</li>
+        <li>Oxidation #s → Units 4 AND 9</li>
+        <li>Hess's Law (U6) mirrors K manipulation (U7)</li>
+        <li>Nernst bridges Q (U7) and E (U9)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+</div><!-- /view-reference -->
+
+
+<!-- ════════════════════════════════════════
+     FLASHCARD VIEW
+════════════════════════════════════════ -->
+<div id="view-flashcard">
+
+  <div class="fc-filters">
+    <span class="lbl">Filter</span>
+    <button class="fb fb-all on" onclick="setFilter('all')">All</button>
+    <button class="fb fb-1" onclick="setFilter(1)">U1</button>
+    <button class="fb fb-2" onclick="setFilter(2)">U2</button>
+    <button class="fb fb-3" onclick="setFilter(3)">U3</button>
+    <button class="fb fb-4" onclick="setFilter(4)">U4</button>
+    <button class="fb fb-5" onclick="setFilter(5)">U5</button>
+    <button class="fb fb-6" onclick="setFilter(6)">U6</button>
+    <button class="fb fb-7" onclick="setFilter(7)">U7</button>
+    <button class="fb fb-8" onclick="setFilter(8)">U8</button>
+    <button class="fb fb-9" onclick="setFilter(9)">U9</button>
+    <button class="fb fb-weak" onclick="setFilter('weak')">⚠ Weak Only</button>
+    <button class="fc-shuffle" onclick="doShuffle()">⇄ Shuffle</button>
+  </div>
+
+  <div class="fc-prog-row">
+    <span class="fc-counter" id="fc-counter">1 / 45</span>
+    <div class="fc-bar-outer"><div class="fc-bar-inner" id="fc-bar"></div></div>
+    <div class="fc-scores">
+      <span><span class="dot" style="background:#34d399"></span><span id="sg">0</span></span>
+      <span><span class="dot" style="background:#facc15"></span><span id="si">0</span></span>
+      <span><span class="dot" style="background:#fb7185"></span><span id="sm">0</span></span>
+    </div>
+  </div>
+
+  <!-- THE FLIP CARD -->
+  <div class="fc-scene">
+    <div class="fc-inner" id="fc-inner" onclick="doFlip()">
+      <div class="fc-face fc-front" id="fc-front">
+        <div class="fc-stripe" id="fc-stripe-f"></div>
+        <div class="fc-body">
+          <span class="fc-unit-pill" id="fc-pill">Unit 1</span>
+          <div class="fc-q" id="fc-q">Loading…</div>
+          <div class="fc-tap">click to reveal &nbsp;·&nbsp; <kbd style="font-family:'Space Mono',monospace;background:#1a1a1e;border:1px solid #333;border-radius:3px;padding:1px 6px;font-size:10px">space</kbd></div>
+        </div>
+      </div>
+      <div class="fc-face fc-back" id="fc-back">
+        <div class="fc-stripe" id="fc-stripe-b"></div>
+        <div class="fc-body">
+          <span class="fc-ans-lbl">Answer</span>
+          <div class="fc-ans" id="fc-ans"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RATING -->
+  <div class="fc-rating" id="fc-rating">
+    <button class="rbn r-miss" onclick="doRate('miss')">✗ &nbsp;Missed</button>
+    <button class="rbn r-iffy" onclick="doRate('iffy')">~ &nbsp;Iffy</button>
+    <button class="rbn r-got"  onclick="doRate('got')">✓ &nbsp;Got it</button>
+  </div>
+
+  <!-- NAV -->
+  <div class="fc-nav" id="fc-nav">
+    <button class="fc-nbtn" id="btn-prev" onclick="goPrev()">← Prev</button>
+    <button class="fc-nbtn" id="btn-next" onclick="goNext()">Next →</button>
+  </div>
+
+  <!-- DONE SCREEN -->
+  <div class="fc-done" id="fc-done">
+    <h2>Round complete 🎉</h2>
+    <p id="done-sub">Here's how you did on this deck:</p>
+    <div class="done-stats">
+      <div class="done-stat" style="border-color:rgba(52,211,153,.3)"><div class="num c3" id="dg">0</div><div class="lbl">Got it</div></div>
+      <div class="done-stat" style="border-color:rgba(250,204,21,.3)"><div class="num c6" id="di">0</div><div class="lbl">Iffy</div></div>
+      <div class="done-stat" style="border-color:rgba(251,113,133,.3)"><div class="num c5" id="dm">0</div><div class="lbl">Missed</div></div>
+    </div>
+    <div class="done-btns">
+      <button class="fc-nbtn" onclick="doRestart()">↺ Restart</button>
+      <button class="fc-nbtn" id="btn-weak-done" onclick="doWeakReview()" style="display:none">⚠ Review Weak</button>
+    </div>
+  </div>
+
+  <div class="kb-hint"><kbd>Space</kbd> flip &nbsp;·&nbsp; <kbd>←</kbd> <kbd>→</kbd> navigate &nbsp;·&nbsp; <kbd>1</kbd> missed &nbsp;<kbd>2</kbd> iffy &nbsp;<kbd>3</kbd> got it</div>
+
+</div><!-- /view-flashcard -->
+
+<footer>AP Chemistry Review Guide · Units 1–9 · Built from your notes</footer>
+
+<!-- ════════════════════════════════════════
+     WALKTHROUGH VIEW
+════════════════════════════════════════ -->
+<div id="view-walkthrough">
+<div class="wt-wrap">
+<div class="wt-layout">
+
+<!-- SIDEBAR -->
+<div class="wt-sidebar">
+  <h4>Problem Types</h4>
+  <div class="wt-unit-sep">Unit 1–2</div>
+  <a href="#wt1" onclick="toggleWT('wt1');return false;">Electron Configuration</a>
+  <a href="#wt2" onclick="toggleWT('wt2');return false;">Periodic Trends Comparison</a>
+  <a href="#wt3" onclick="toggleWT('wt3');return false;">VSEPR &amp; Hybridization</a>
+  <div class="wt-unit-sep">Unit 3</div>
+  <a href="#wt4" onclick="toggleWT('wt4');return false;">Ideal Gas Law Calculation</a>
+  <a href="#wt5" onclick="toggleWT('wt5');return false;">IMF Ranking by BP</a>
+  <div class="wt-unit-sep">Unit 4</div>
+  <a href="#wt6" onclick="toggleWT('wt6');return false;">Stoichiometry + Limiting Reagent</a>
+  <a href="#wt7" onclick="toggleWT('wt7');return false;">Balancing Redox (Acidic)</a>
+  <a href="#wt8" onclick="toggleWT('wt8');return false;">Net Ionic Equation</a>
+  <div class="wt-unit-sep">Unit 5</div>
+  <a href="#wt9" onclick="toggleWT('wt9');return false;">Determining Rate Law from Data</a>
+  <a href="#wt10" onclick="toggleWT('wt10');return false;">Integrated Rate Law / Half-life</a>
+  <a href="#wt11" onclick="toggleWT('wt11');return false;">Reaction Mechanisms</a>
+  <div class="wt-unit-sep">Unit 6</div>
+  <a href="#wt12" onclick="toggleWT('wt12');return false;">Hess's Law / ΔH°rxn</a>
+  <a href="#wt13" onclick="toggleWT('wt13');return false;">Gibbs Free Energy &amp; Spontaneity</a>
+  <a href="#wt14" onclick="toggleWT('wt14');return false;">Calorimetry Calculation</a>
+  <div class="wt-unit-sep">Unit 7</div>
+  <a href="#wt15" onclick="toggleWT('wt15');return false;">ICE Table + Equilibrium Conc.</a>
+  <a href="#wt16" onclick="toggleWT('wt16');return false;">Le Châtelier Prediction</a>
+  <a href="#wt17" onclick="toggleWT('wt17');return false;">Ksp + Common Ion Effect</a>
+  <div class="wt-unit-sep">Unit 8</div>
+  <a href="#wt18" onclick="toggleWT('wt18');return false;">Weak Acid pH (ICE Table)</a>
+  <a href="#wt19" onclick="toggleWT('wt19');return false;">Buffer pH (Henderson-Hasselbalch)</a>
+  <a href="#wt20" onclick="toggleWT('wt20');return false;">Titration Curve Problem</a>
+  <div class="wt-unit-sep">Unit 9</div>
+  <a href="#wt21" onclick="toggleWT('wt21');return false;">Galvanic Cell + E°cell</a>
+  <a href="#wt22" onclick="toggleWT('wt22');return false;">ΔG°, K, and E° Connection</a>
+  <a href="#wt23" onclick="toggleWT('wt23');return false;">Nernst Equation (Non-standard)</a>
+  <a href="#wt24" onclick="toggleWT('wt24');return false;">Electrolysis / Faraday's Law</a>
+  <div class="wt-unit-sep">FRQ Strategy</div>
+  <a href="#wt25" onclick="toggleWT('wt25');return false;">FRQ Justification Framework</a>
+</div>
+
+<!-- CONTENT -->
+<div class="wt-content">
+
+<!-- ── 1 ── -->
+<div class="wt-problem" id="wt1">
+  <div class="wt-problem-header" onclick="toggleWT('wt1')" style="--accent:var(--u1)">
+    <div class="wt-problem-num" style="background:var(--u1);color:#000">1</div>
+    <div class="wt-problem-title">Electron Configuration</div>
+    <div class="wt-problem-unit">Unit 1</div>
+    <span class="wt-chevron">▾</span>
+  </div>
+  <div class="wt-body" style="--accent:var(--u1)">
+    <div class="wt-question-box" style="border-left-color:var(--u1)">
+      <span class="wt-qlabel">Example Question</span>
+      Write the ground-state electron configuration for Fe (Z=26) and Fe²⁺. Identify the number of unpaired electrons in each.
+    </div>
+    <div class="wt-steps">
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u1)">1</div><div class="wt-step-content">
+        <h5>Fill orbitals in Aufbau order</h5>
+        <p>1s → 2s → 2p → 3s → 3p → 4s → 3d → 4p…</p>
+        <span class="math">Fe (26e⁻): 1s²2s²2p⁶3s²3p⁶4s²3d⁶</span>
+      </div></div>
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u1)">2</div><div class="wt-step-content">
+        <h5>Apply Hund's Rule to 3d⁶</h5>
+        <p>Fill each of the 5 d-orbitals with one electron first (half-fill), then pair. 3d⁶ = ↑↓ ↑ ↑ ↑ ↑ → 4 unpaired electrons.</p>
+      </div></div>
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u1)">3</div><div class="wt-step-content">
+        <h5>Form the ion — remove from highest n first</h5>
+        <p>Fe²⁺ loses 2 electrons from 4s first (not 3d).</p>
+        <span class="math">Fe²⁺: 1s²2s²2p⁶3s²3p⁶3d⁶</span>
+        <p>3d⁶ still has 4 unpaired electrons.</p>
+        <div class="frq-tip"><b>FRQ tip:</b> Always remove electrons from the highest principal quantum number first when forming cations. A common trap is removing from 3d instead of 4s.</div>
+      </div></div>
+    </div>
+    <div class="wt-answer-box"><span class="albl">Answer</span><p>Fe: [Ar]4s²3d⁶ — 4 unpaired e⁻. Fe²⁺: [Ar]3d⁶ — 4 unpaired e⁻. (Both have the same number here, but this is often different.)</p></div>
+  </div>
+</div>
+
+<!-- ── 2 ── -->
+<div class="wt-problem" id="wt2">
+  <div class="wt-problem-header" onclick="toggleWT('wt2')">
+    <div class="wt-problem-num" style="background:var(--u1);color:#000">2</div>
+    <div class="wt-problem-title">Periodic Trends Comparison</div>
+    <div class="wt-problem-unit">Unit 1</div>
+    <span class="wt-chevron">▾</span>
+  </div>
+  <div class="wt-body" style="--accent:var(--u1)">
+    <div class="wt-question-box" style="border-left-color:var(--u1)">
+      <span class="wt-qlabel">Example Question</span>
+      Rank Na, Mg, and Al in order of increasing first ionization energy. Explain.
+    </div>
+    <div class="wt-steps">
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u1)">1</div><div class="wt-step-content">
+        <h5>Identify position on periodic table</h5>
+        <p>All three are in Period 3. Going left to right: Na (Group 1) → Mg (Group 2) → Al (Group 13).</p>
+      </div></div>
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u1)">2</div><div class="wt-step-content">
+        <h5>Apply the trend — but note the exception</h5>
+        <p>IE generally increases across a period due to increasing nuclear charge with the same shielding. However, Al is a Group 2A→3A exception: Al's 3p electron is easier to remove than Mg's 3s because 3p is higher energy and gets more shielding from 3s.</p>
+        <span class="result">Na &lt; Al &lt; Mg</span>
+        <div class="frq-tip"><b>FRQ tip:</b> Always explain the exception — "Al's 3p electron is higher energy and more shielded than Mg's full 3s subshell, making it easier to remove despite Al having higher nuclear charge."</div>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 3 ── -->
+<div class="wt-problem" id="wt3">
+  <div class="wt-problem-header" onclick="toggleWT('wt3')">
+    <div class="wt-problem-num" style="background:var(--u2);color:#000">3</div>
+    <div class="wt-problem-title">VSEPR &amp; Hybridization</div>
+    <div class="wt-problem-unit">Unit 2</div>
+    <span class="wt-chevron">▾</span>
+  </div>
+  <div class="wt-body" style="--accent:var(--u2)">
+    <div class="wt-question-box" style="border-left-color:var(--u2)">
+      <span class="wt-qlabel">Example Question</span>
+      Determine the molecular geometry, bond angle, and hybridization of SF₄.
+    </div>
+    <div class="wt-steps">
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u2)">1</div><div class="wt-step-content">
+        <h5>Count electron domains on central atom</h5>
+        <p>S has 6 valence electrons. 4 F atoms each form 1 bond. That's 4 bonding pairs + 1 lone pair on S = <b>5 electron domains</b>.</p>
+      </div></div>
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u2)">2</div><div class="wt-step-content">
+        <h5>Electron geometry vs molecular geometry</h5>
+        <p>5 domains → electron geometry = trigonal bipyramidal (sp³d). With 1 lone pair, molecular geometry = <b>see-saw</b>.</p>
+        <span class="math">Hybridization: sp³d</span>
+      </div></div>
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u2)">3</div><div class="wt-step-content">
+        <h5>Lone pair placement rule</h5>
+        <p>In trigonal bipyramidal, lone pairs go in equatorial positions (less repulsion with 90° neighbors). Bond angles: ~90° and ~120° (compressed slightly by LP repulsion).</p>
+        <div class="frq-tip"><b>FRQ tip:</b> Always state both electron geometry AND molecular geometry. Graders need both. Also explain why lone pairs go equatorial for 5-domain structures.</div>
+      </div></div>
+    </div>
+    <div class="wt-answer-box"><span class="albl">Answer</span><p>Molecular geometry: see-saw. Hybridization: sp³d. Bond angles: ~90°/~120° (compressed by lone pair repulsion). Electron geometry: trigonal bipyramidal.</p></div>
+  </div>
+</div>
+
+<!-- ── 4 ── -->
+<div class="wt-problem" id="wt4">
+  <div class="wt-problem-header" onclick="toggleWT('wt4')">
+    <div class="wt-problem-num" style="background:var(--u3);color:#000">4</div>
+    <div class="wt-problem-title">Ideal Gas Law Calculation</div>
+    <div class="wt-problem-unit">Unit 3</div>
+    <span class="wt-chevron">▾</span>
+  </div>
+  <div class="wt-body" style="--accent:var(--u3)">
+    <div class="wt-question-box" style="border-left-color:var(--u3)">
+      <span class="wt-qlabel">Example Question</span>
+      A 3.50 g sample of N₂ gas is held in a 2.00 L container at 25°C. What is the pressure in atm?
+    </div>
+    <div class="wt-steps">
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u3)">1</div><div class="wt-step-content">
+        <h5>Convert all units</h5>
+        <p>T = 25°C + 273 = <b>298 K</b>. Molar mass N₂ = 28 g/mol.</p>
+        <span class="math">n = 3.50 g ÷ 28.0 g/mol = 0.125 mol</span>
+      </div></div>
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u3)">2</div><div class="wt-step-content">
+        <h5>Plug into PV = nRT, solve for P</h5>
+        <span class="math">P = nRT/V = (0.125)(0.0821)(298) / 2.00</span>
+        <span class="result">P = 1.53 atm</span>
+        <div class="warn">⚠ Always convert °C to K. Forgetting this is the #1 gas law mistake.</div>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 5 ── -->
+<div class="wt-problem" id="wt5">
+  <div class="wt-problem-header" onclick="toggleWT('wt5')">
+    <div class="wt-problem-num" style="background:var(--u3);color:#000">5</div>
+    <div class="wt-problem-title">IMF Ranking by Boiling Point</div>
+    <div class="wt-problem-unit">Unit 3</div>
+    <span class="wt-chevron">▾</span>
+  </div>
+  <div class="wt-body" style="--accent:var(--u3)">
+    <div class="wt-question-box" style="border-left-color:var(--u3)">
+      <span class="wt-qlabel">Example Question</span>
+      Rank CH₄, HF, and H₂O in order of increasing boiling point. Explain in terms of intermolecular forces.
+    </div>
+    <div class="wt-steps">
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u3)">1</div><div class="wt-step-content">
+        <h5>Identify the IMF type for each</h5>
+        <p>CH₄: nonpolar, only LDF. HF: polar with H bonded to F → hydrogen bonding. H₂O: polar with H bonded to O → hydrogen bonding AND can form more H-bonds per molecule (2 donors, 2 acceptors).</p>
+      </div></div>
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u3)">2</div><div class="wt-step-content">
+        <h5>Rank by IMF strength</h5>
+        <p>LDF only (weakest) &lt; H-bonding. Between HF and H₂O: H₂O has a higher BP despite lower molar mass because each molecule can form more hydrogen bonds (H₂O has 2 H-bond donors AND 2 acceptors; HF has 1 donor, 4 acceptors but network is less extensive).</p>
+        <span class="result">CH₄ &lt; HF &lt; H₂O</span>
+        <div class="frq-tip"><b>FRQ tip:</b> Never just say "stronger IMFs." Name the specific IMF type and explain WHY it exists (what structural feature causes it). Saying "H₂O has hydrogen bonding because H is bonded directly to O" earns the point. Saying "stronger forces" does not.</div>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 6 ── -->
+<div class="wt-problem" id="wt6">
+  <div class="wt-problem-header" onclick="toggleWT('wt6')">
+    <div class="wt-problem-num" style="background:var(--u4);color:#fff">6</div>
+    <div class="wt-problem-title">Stoichiometry + Limiting Reagent</div>
+    <div class="wt-problem-unit">Unit 4</div>
+    <span class="wt-chevron">▾</span>
+  </div>
+  <div class="wt-body" style="--accent:var(--u4)">
+    <div class="wt-question-box" style="border-left-color:var(--u4)">
+      <span class="wt-qlabel">Example Question</span>
+      12.0 g of Fe reacts with 8.00 g of S to form FeS. Which is the limiting reagent? How many grams of FeS are produced?
+    </div>
+    <div class="wt-steps">
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u4)">1</div><div class="wt-step-content">
+        <h5>Write and balance the equation</h5>
+        <span class="math">Fe + S → FeS  (1:1:1 ratio)</span>
+      </div></div>
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u4)">2</div><div class="wt-step-content">
+        <h5>Convert both reactants to moles</h5>
+        <span class="math">mol Fe = 12.0 / 55.8 = 0.215 mol</span>
+        <span class="math">mol S  = 8.00 / 32.1 = 0.249 mol</span>
+      </div></div>
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u4)">3</div><div class="wt-step-content">
+        <h5>Find the limiting reagent</h5>
+        <p>1:1 ratio → whichever has fewer moles is limiting. Fe (0.215 mol) &lt; S (0.249 mol) → <b>Fe is limiting.</b></p>
+      </div></div>
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u4)">4</div><div class="wt-step-content">
+        <h5>Calculate product using limiting reagent</h5>
+        <span class="math">mol FeS = 0.215 mol (1:1 ratio with Fe)</span>
+        <span class="result">mass FeS = 0.215 × 87.9 g/mol = 18.9 g</span>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 7 ── -->
+<div class="wt-problem" id="wt7">
+  <div class="wt-problem-header" onclick="toggleWT('wt7')">
+    <div class="wt-problem-num" style="background:var(--u4);color:#fff">7</div>
+    <div class="wt-problem-title">Balancing Redox in Acidic Solution</div>
+    <div class="wt-problem-unit">Unit 4</div>
+    <span class="wt-chevron">▾</span>
+  </div>
+  <div class="wt-body" style="--accent:var(--u4)">
+    <div class="wt-question-box" style="border-left-color:var(--u4)">
+      <span class="wt-qlabel">Example Question</span>
+      Balance in acidic solution: MnO₄⁻ + Fe²⁺ → Mn²⁺ + Fe³⁺
+    </div>
+    <div class="wt-steps">
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u4)">1</div><div class="wt-step-content">
+        <h5>Split into half-reactions</h5>
+        <span class="math">Reduction: MnO₄⁻ → Mn²⁺</span>
+        <span class="math">Oxidation: Fe²⁺ → Fe³⁺</span>
+      </div></div>
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u4)">2</div><div class="wt-step-content">
+        <h5>Balance O with H₂O, H with H⁺</h5>
+        <span class="math">MnO₄⁻ → Mn²⁺ + 4H₂O  (balance O)</span>
+        <span class="math">MnO₄⁻ + 8H⁺ → Mn²⁺ + 4H₂O  (balance H)</span>
+      </div></div>
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u4)">3</div><div class="wt-step-content">
+        <h5>Balance charge with electrons</h5>
+        <span class="math">MnO₄⁻ + 8H⁺ + 5e⁻ → Mn²⁺ + 4H₂O  (left = +2, right = +2 ✓)</span>
+        <span class="math">Fe²⁺ → Fe³⁺ + 1e⁻</span>
+      </div></div>
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u4)">4</div><div class="wt-step-content">
+        <h5>Equalize electrons and add</h5>
+        <p>Multiply oxidation half by 5 to match 5e⁻:</p>
+        <span class="result">MnO₄⁻ + 8H⁺ + 5Fe²⁺ → Mn²⁺ + 4H₂O + 5Fe³⁺</span>
+        <div class="frq-tip"><b>FRQ tip:</b> Always verify: atoms balanced ✓, charge balanced ✓. State which species is oxidized and which is reduced. The oxidizing agent is the one that gets reduced (MnO₄⁻ here).</div>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 8 ── -->
+<div class="wt-problem" id="wt8">
+  <div class="wt-problem-header" onclick="toggleWT('wt8')">
+    <div class="wt-problem-num" style="background:var(--u4);color:#fff">8</div>
+    <div class="wt-problem-title">Net Ionic Equation</div>
+    <div class="wt-problem-unit">Unit 4</div>
+    <span class="wt-chevron">▾</span>
+  </div>
+  <div class="wt-body" style="--accent:var(--u4)">
+    <div class="wt-question-box" style="border-left-color:var(--u4)">
+      <span class="wt-qlabel">Example Question</span>
+      Write the net ionic equation for: Pb(NO₃)₂(aq) + 2KI(aq) → PbI₂(s) + 2KNO₃(aq)
+    </div>
+    <div class="wt-steps">
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u4)">1</div><div class="wt-step-content">
+        <h5>Identify what stays molecular vs dissociates</h5>
+        <p>PbI₂ is insoluble (s) → stays as PbI₂. All others are soluble salts → dissociate into ions.</p>
+        <span class="math">Pb²⁺ + 2NO₃⁻ + 2K⁺ + 2I⁻ → PbI₂(s) + 2K⁺ + 2NO₃⁻</span>
+      </div></div>
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u4)">2</div><div class="wt-step-content">
+        <h5>Cancel spectator ions</h5>
+        <p>K⁺ and NO₃⁻ appear identically on both sides → cancel.</p>
+        <span class="result">Pb²⁺(aq) + 2I⁻(aq) → PbI₂(s)</span>
+        <div class="frq-tip"><b>FRQ tip:</b> Include state symbols (aq), (s), (l), (g) — graders check for these. Also: weak acids/bases like CH₃COOH stay molecular even in solution.</div>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 9 ── -->
+<div class="wt-problem" id="wt9">
+  <div class="wt-problem-header" onclick="toggleWT('wt9')">
+    <div class="wt-problem-num" style="background:var(--u5);color:#fff">9</div>
+    <div class="wt-problem-title">Determining Rate Law from Experimental Data</div>
+    <div class="wt-problem-unit">Unit 5</div>
+    <span class="wt-chevron">▾</span>
+  </div>
+  <div class="wt-body" style="--accent:var(--u5)">
+    <div class="wt-question-box" style="border-left-color:var(--u5)">
+      <span class="wt-qlabel">Example Question</span>
+      Given data: Exp 1: [A]=0.10, [B]=0.10, rate=2.0×10⁻³ M/s. Exp 2: [A]=0.20, [B]=0.10, rate=8.0×10⁻³ M/s. Exp 3: [A]=0.10, [B]=0.20, rate=2.0×10⁻³ M/s. Find the rate law and k.
+    </div>
+    <div class="wt-steps">
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u5)">1</div><div class="wt-step-content">
+        <h5>Find order with respect to A (hold B constant)</h5>
+        <p>Compare Exp 1 and 2: [A] doubles (×2), rate quadruples (×4). So rate ∝ [A]².</p>
+        <span class="math">rate₂/rate₁ = ([A]₂/[A]₁)^m → 4 = 2^m → m = 2</span>
+      </div></div>
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u5)">2</div><div class="wt-step-content">
+        <h5>Find order with respect to B (hold A constant)</h5>
+        <p>Compare Exp 1 and 3: [B] doubles, rate unchanged (×1). Rate is zero order in B.</p>
+        <span class="math">rate₃/rate₁ = ([B]₃/[B]₁)^n → 1 = 2^n → n = 0</span>
+      </div></div>
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u5)">3</div><div class="wt-step-content">
+        <h5>Write rate law and solve for k</h5>
+        <span class="math">rate = k[A]²</span>
+        <span class="math">k = rate/[A]² = 2.0×10⁻³ / (0.10)² = 0.20 M⁻¹s⁻¹</span>
+        <span class="result">rate = 0.20[A]²  ;  overall order = 2nd</span>
+        <div class="warn">⚠ Orders come from experiment ONLY — never from the balanced equation coefficients.</div>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 10 ── -->
+<div class="wt-problem" id="wt10">
+  <div class="wt-problem-header" onclick="toggleWT('wt10')">
+    <div class="wt-problem-num" style="background:var(--u5);color:#fff">10</div>
+    <div class="wt-problem-title">Integrated Rate Law &amp; Half-life</div>
+    <div class="wt-problem-unit">Unit 5</div>
+    <span class="wt-chevron">▾</span>
+  </div>
+  <div class="wt-body" style="--accent:var(--u5)">
+    <div class="wt-question-box" style="border-left-color:var(--u5)">
+      <span class="wt-qlabel">Example Question</span>
+      A first-order reaction has k = 0.0250 s⁻¹. If [A]₀ = 0.800 M, what is [A] after 45.0 s? What is the half-life?
+    </div>
+    <div class="wt-steps">
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u5)">1</div><div class="wt-step-content">
+        <h5>Use the first-order integrated rate law</h5>
+        <span class="math">ln[A] = ln[A]₀ − kt</span>
+        <span class="math">ln[A] = ln(0.800) − (0.0250)(45.0) = −0.223 − 1.125 = −1.348</span>
+        <span class="result">[A] = e^(−1.348) = 0.259 M</span>
+      </div></div>
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u5)">2</div><div class="wt-step-content">
+        <h5>Calculate half-life</h5>
+        <span class="math">t½ = 0.693 / k = 0.693 / 0.0250 = 27.7 s</span>
+        <p>Note: first-order half-life is <b>constant</b> — it doesn't depend on concentration.</p>
+        <div class="frq-tip"><b>FRQ tip:</b> If the problem says half-life is constant, the reaction is first order. If half-life changes with concentration, it's zero or second order. This is a common FRQ identification question.</div>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 11 ── -->
+<div class="wt-problem" id="wt11">
+  <div class="wt-problem-header" onclick="toggleWT('wt11')">
+    <div class="wt-problem-num" style="background:var(--u5);color:#fff">11</div>
+    <div class="wt-problem-title">Reaction Mechanisms</div>
+    <div class="wt-problem-unit">Unit 5</div>
+    <span class="wt-chevron">▾</span>
+  </div>
+  <div class="wt-body" style="--accent:var(--u5)">
+    <div class="wt-question-box" style="border-left-color:var(--u5)">
+      <span class="wt-qlabel">Example Question</span>
+      A reaction has mechanism: Step 1 (slow): NO₂ + NO₂ → NO₃ + NO. Step 2 (fast): NO₃ + CO → NO₂ + CO₂. (a) Write the overall equation. (b) Identify intermediates. (c) Write the rate law.
+    </div>
+    <div class="wt-steps">
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u5)">1</div><div class="wt-step-content">
+        <h5>(a) Overall equation — add steps, cancel intermediates</h5>
+        <span class="math">NO₂ + NO₂ + NO₃ + CO → NO₃ + NO + NO₂ + CO₂</span>
+        <p>Cancel NO₃ (appears on both sides):</p>
+        <span class="result">NO₂ + CO → NO + CO₂</span>
+      </div></div>
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u5)">2</div><div class="wt-step-content">
+        <h5>(b) Identify intermediates</h5>
+        <p>NO₃ is produced in Step 1 and consumed in Step 2 → it's an <b>intermediate</b> (not in the overall equation).</p>
+      </div></div>
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u5)">3</div><div class="wt-step-content">
+        <h5>(c) Rate law comes from the slow (rate-determining) step</h5>
+        <span class="math">Slow step: NO₂ + NO₂ → products</span>
+        <span class="result">rate = k[NO₂]²</span>
+        <div class="frq-tip"><b>FRQ tip:</b> Rate law comes directly from the slow step's reactants. If the slow step uses an intermediate, you must express it in terms of the original reactants using the fast equilibrium step before it.</div>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 12 ── -->
+<div class="wt-problem" id="wt12">
+  <div class="wt-problem-header" onclick="toggleWT('wt12')">
+    <div class="wt-problem-num" style="background:var(--u6);color:#000">12</div>
+    <div class="wt-problem-title">Hess's Law / ΔH°rxn</div>
+    <div class="wt-problem-unit">Unit 6</div>
+    <span class="wt-chevron">▾</span>
+  </div>
+  <div class="wt-body" style="--accent:var(--u6)">
+    <div class="wt-question-box" style="border-left-color:var(--u6)">
+      <span class="wt-qlabel">Example Question</span>
+      Given: (1) C + O₂ → CO₂, ΔH = −393 kJ. (2) H₂ + ½O₂ → H₂O, ΔH = −286 kJ. (3) CH₄ + 2O₂ → CO₂ + 2H₂O, ΔH = −890 kJ. Find ΔH for: C + 2H₂ → CH₄
+    </div>
+    <div class="wt-steps">
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u6)">1</div><div class="wt-step-content">
+        <h5>Target equation: C + 2H₂ → CH₄. Work backward from what you need.</h5>
+        <p>Need C on left → use rxn (1) as-is: C + O₂ → CO₂, ΔH₁ = −393 kJ</p>
+        <p>Need 2H₂ on left → use rxn (2) ×2: 2H₂ + O₂ → 2H₂O, ΔH = 2(−286) = −572 kJ</p>
+        <p>Need CH₄ on right → reverse rxn (3): CO₂ + 2H₂O → CH₄ + 2O₂, ΔH = +890 kJ</p>
+      </div></div>
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u6)">2</div><div class="wt-step-content">
+        <h5>Add all three and cancel intermediates</h5>
+        <p>CO₂, H₂O, and O₂ all cancel.</p>
+        <span class="result">ΔH = −393 + (−572) + 890 = −75 kJ</span>
+        <div class="frq-tip"><b>FRQ tip:</b> Show your work clearly — write each modified equation, show which you flipped or multiplied, then add. Graders follow your logic step by step.</div>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 13 ── -->
+<div class="wt-problem" id="wt13">
+  <div class="wt-problem-header" onclick="toggleWT('wt13')">
+    <div class="wt-problem-num" style="background:var(--u6);color:#000">13</div>
+    <div class="wt-problem-title">Gibbs Free Energy &amp; Spontaneity</div>
+    <div class="wt-problem-unit">Unit 6</div>
+    <span class="wt-chevron">▾</span>
+  </div>
+  <div class="wt-body" style="--accent:var(--u6)">
+    <div class="wt-question-box" style="border-left-color:var(--u6)">
+      <span class="wt-qlabel">Example Question</span>
+      A reaction has ΔH° = +120 kJ/mol and ΔS° = +250 J/mol·K. (a) Is the reaction spontaneous at 25°C? (b) At what temperature does it become spontaneous?
+    </div>
+    <div class="wt-steps">
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u6)">1</div><div class="wt-step-content">
+        <h5>(a) Calculate ΔG° at 25°C (298 K)</h5>
+        <div class="warn">⚠ Convert ΔS° to kJ: 250 J/mol·K = 0.250 kJ/mol·K</div>
+        <span class="math">ΔG° = ΔH° − TΔS° = 120 − (298)(0.250) = 120 − 74.5 = +45.5 kJ</span>
+        <p>ΔG° > 0 → <b>not spontaneous</b> at 25°C.</p>
+      </div></div>
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u6)">2</div><div class="wt-step-content">
+        <h5>(b) Find crossover temperature where ΔG° = 0</h5>
+        <span class="math">0 = ΔH° − TΔS°  →  T = ΔH°/ΔS°</span>
+        <span class="result">T = 120 kJ / 0.250 kJ/K = 480 K  (207°C)</span>
+        <p>Above 480 K, TΔS° dominates → ΔG° &lt; 0 → spontaneous.</p>
+        <div class="frq-tip"><b>FRQ tip:</b> The #1 error is mismatched units — ΔH in kJ but ΔS in J. Always convert ΔS to kJ/K before plugging in.</div>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 14 ── -->
+<div class="wt-problem" id="wt14">
+  <div class="wt-problem-header" onclick="toggleWT('wt14')">
+    <div class="wt-problem-num" style="background:var(--u6);color:#000">14</div>
+    <div class="wt-problem-title">Calorimetry Calculation</div>
+    <div class="wt-problem-unit">Unit 6</div>
+    <span class="wt-chevron">▾</span>
+  </div>
+  <div class="wt-body" style="--accent:var(--u6)">
+    <div class="wt-question-box" style="border-left-color:var(--u6)">
+      <span class="wt-qlabel">Example Question</span>
+      When 0.500 g of a solid dissolves in 50.0 g of water in a coffee cup calorimeter, the temperature rises from 22.4°C to 25.1°C. Calculate ΔH_dissolution in kJ/mol. (MM of solid = 80.0 g/mol)
+    </div>
+    <div class="wt-steps">
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u6)">1</div><div class="wt-step-content">
+        <h5>Find q_solution</h5>
+        <span class="math">q = mcΔT = (50.0 g)(4.184 J/g·°C)(25.1 − 22.4) = (50.0)(4.184)(2.7)</span>
+        <span class="math">q_solution = 564.8 J = 0.5648 kJ</span>
+      </div></div>
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u6)">2</div><div class="wt-step-content">
+        <h5>q_rxn = −q_solution</h5>
+        <p>Temperature rose → solution absorbed heat → rxn released heat → exothermic.</p>
+        <span class="math">q_rxn = −0.5648 kJ</span>
+      </div></div>
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u6)">3</div><div class="wt-step-content">
+        <h5>Convert to kJ/mol</h5>
+        <span class="math">mol solid = 0.500 g / 80.0 g/mol = 6.25×10⁻³ mol</span>
+        <span class="result">ΔH = −0.5648 / 6.25×10⁻³ = −90.4 kJ/mol</span>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 15 ── -->
+<div class="wt-problem" id="wt15">
+  <div class="wt-problem-header" onclick="toggleWT('wt15')">
+    <div class="wt-problem-num" style="background:var(--u7);color:#000">15</div>
+    <div class="wt-problem-title">ICE Table + Equilibrium Concentrations</div>
+    <div class="wt-problem-unit">Unit 7</div>
+    <span class="wt-chevron">▾</span>
+  </div>
+  <div class="wt-body" style="--accent:var(--u7)">
+    <div class="wt-question-box" style="border-left-color:var(--u7)">
+      <span class="wt-qlabel">Example Question</span>
+      For N₂(g) + 3H₂(g) ⇌ 2NH₃(g), Kc = 0.500 at 400°C. If [N₂]₀ = 1.00 M and [H₂]₀ = 1.50 M, find equilibrium concentrations.
+    </div>
+    <div class="wt-steps">
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u7)">1</div><div class="wt-step-content">
+        <h5>Set up ICE table</h5>
+        <span class="math">N₂ + 3H₂ ⇌ 2NH₃</span>
+        <span class="math">I:  1.00   1.50    0</span>
+        <span class="math">C:  −x    −3x   +2x</span>
+        <span class="math">E:  1−x  1.5−3x  2x</span>
+      </div></div>
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u7)">2</div><div class="wt-step-content">
+        <h5>Substitute into K expression</h5>
+        <span class="math">Kc = [NH₃]² / ([N₂][H₂]³) = (2x)² / ((1−x)(1.5−3x)³) = 0.500</span>
+        <p>This cubic is complex — check if small-x approximation applies: K = 0.500 is not tiny, so you may need to solve numerically or use approximation with check. For AP, set up the expression and solve or approximate.</p>
+        <div class="frq-tip"><b>FRQ tip:</b> On the AP exam, K values are often chosen so that small-x works or the algebra simplifies. Always check: if x / initial &lt; 5%, approximation is valid. If not, solve the full expression. You will not lose points for using the quadratic if you show work.</div>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 16 ── -->
+<div class="wt-problem" id="wt16">
+  <div class="wt-problem-header" onclick="toggleWT('wt16')">
+    <div class="wt-problem-num" style="background:var(--u7);color:#000">16</div>
+    <div class="wt-problem-title">Le Châtelier Prediction (FRQ style)</div>
+    <div class="wt-problem-unit">Unit 7</div>
+    <span class="wt-chevron">▾</span>
+  </div>
+  <div class="wt-body" style="--accent:var(--u7)">
+    <div class="wt-question-box" style="border-left-color:var(--u7)">
+      <span class="wt-qlabel">Example Question</span>
+      For 2SO₂(g) + O₂(g) ⇌ 2SO₃(g), ΔH = −198 kJ. Predict the effect on [SO₃] if (a) temperature is increased, (b) pressure is decreased, (c) a catalyst is added.
+    </div>
+    <div class="wt-steps">
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u7)">1</div><div class="wt-step-content">
+        <h5>(a) Increase temperature</h5>
+        <p>Reaction is exothermic (ΔH &lt; 0). Treat heat as a product. Adding heat (↑T) → shifts LEFT → [SO₃] decreases.</p>
+        <div class="frq-tip"><b>FRQ wording:</b> "Increasing temperature shifts the equilibrium to the left because the forward reaction is exothermic; the system opposes the added heat by favoring the reverse reaction, decreasing [SO₃]."</div>
+      </div></div>
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u7)">2</div><div class="wt-step-content">
+        <h5>(b) Decrease pressure (increase volume)</h5>
+        <p>Left side: 2 + 1 = 3 moles gas. Right side: 2 moles gas. Decreasing pressure → system shifts toward more moles of gas → shifts LEFT → [SO₃] decreases.</p>
+      </div></div>
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u7)">3</div><div class="wt-step-content">
+        <h5>(c) Catalyst added</h5>
+        <p>Catalyst lowers Eₐ equally for forward and reverse. Equilibrium position does NOT shift. [SO₃] is unchanged (equilibrium reached faster, but same concentrations).</p>
+        <div class="frq-tip"><b>FRQ tip:</b> Every answer needs a BECAUSE. "Shifts left" = 0 points. "Shifts left because the reaction is exothermic and increasing temperature favors the endothermic (reverse) reaction" = full points.</div>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 17 ── -->
+<div class="wt-problem" id="wt17">
+  <div class="wt-problem-header" onclick="toggleWT('wt17')">
+    <div class="wt-problem-num" style="background:var(--u7);color:#000">17</div>
+    <div class="wt-problem-title">Ksp + Common Ion Effect</div>
+    <div class="wt-problem-unit">Unit 7</div>
+    <span class="wt-chevron">▾</span>
+  </div>
+  <div class="wt-body" style="--accent:var(--u7)">
+    <div class="wt-question-box" style="border-left-color:var(--u7)">
+      <span class="wt-qlabel">Example Question</span>
+      Ksp of PbCl₂ = 1.6×10⁻⁵. (a) Find molar solubility in pure water. (b) Find molar solubility in 0.10 M NaCl.
+    </div>
+    <div class="wt-steps">
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u7)">1</div><div class="wt-step-content">
+        <h5>(a) Solubility in pure water — ICE table</h5>
+        <span class="math">PbCl₂ ⇌ Pb²⁺ + 2Cl⁻</span>
+        <span class="math">I: solid    0     0</span>
+        <span class="math">C:         +x   +2x</span>
+        <span class="math">E:          x    2x</span>
+        <span class="math">Ksp = [Pb²⁺][Cl⁻]² = (x)(2x)² = 4x³ = 1.6×10⁻⁵</span>
+        <span class="result">x³ = 4.0×10⁻⁶  →  x = 0.0159 M</span>
+      </div></div>
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u7)">2</div><div class="wt-step-content">
+        <h5>(b) In 0.10 M NaCl — common ion Cl⁻ already present</h5>
+        <span class="math">I:  0      0.10</span>
+        <span class="math">C: +x     +2x</span>
+        <span class="math">E:  x    0.10+2x ≈ 0.10  (small x approx.)</span>
+        <span class="math">Ksp = (x)(0.10)² = 0.010x = 1.6×10⁻⁵</span>
+        <span class="result">x = 1.6×10⁻³ M  (100× less soluble than pure water!)</span>
+        <p>The common ion (Cl⁻) suppresses the solubility by shifting equilibrium left.</p>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 18 ── -->
+<div class="wt-problem" id="wt18">
+  <div class="wt-problem-header" onclick="toggleWT('wt18')">
+    <div class="wt-problem-num" style="background:var(--u8);color:#000">18</div>
+    <div class="wt-problem-title">Weak Acid pH (ICE Table)</div>
+    <div class="wt-problem-unit">Unit 8</div>
+    <span class="wt-chevron">▾</span>
+  </div>
+  <div class="wt-body" style="--accent:var(--u8)">
+    <div class="wt-question-box" style="border-left-color:var(--u8)">
+      <span class="wt-qlabel">Example Question</span>
+      Find the pH of 0.150 M acetic acid (CH₃COOH). Ka = 1.8×10⁻⁵.
+    </div>
+    <div class="wt-steps">
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u8)">1</div><div class="wt-step-content">
+        <h5>Write the equilibrium and ICE table</h5>
+        <span class="math">CH₃COOH ⇌ H⁺ + CH₃COO⁻</span>
+        <span class="math">I: 0.150    0       0</span>
+        <span class="math">C: −x     +x      +x</span>
+        <span class="math">E: 0.150−x  x       x</span>
+      </div></div>
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u8)">2</div><div class="wt-step-content">
+        <h5>Substitute into Ka — use small-x approx.</h5>
+        <span class="math">Ka = x² / (0.150 − x) ≈ x² / 0.150 = 1.8×10⁻⁵</span>
+        <span class="math">x² = (1.8×10⁻⁵)(0.150) = 2.7×10⁻⁶</span>
+        <span class="math">x = [H⁺] = 1.64×10⁻³ M</span>
+        <p>Check: 1.64×10⁻³ / 0.150 = 1.1% &lt; 5% ✓ approximation valid</p>
+      </div></div>
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u8)">3</div><div class="wt-step-content">
+        <h5>Calculate pH</h5>
+        <span class="result">pH = −log(1.64×10⁻³) = 2.79</span>
+        <div class="frq-tip"><b>FRQ tip:</b> Always check the 5% rule. If it fails, use the quadratic formula. Show ALL intermediate steps — graders award partial credit for correct setup even if arithmetic is wrong.</div>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 19 ── -->
+<div class="wt-problem" id="wt19">
+  <div class="wt-problem-header" onclick="toggleWT('wt19')">
+    <div class="wt-problem-num" style="background:var(--u8);color:#000">19</div>
+    <div class="wt-problem-title">Buffer pH (Henderson-Hasselbalch)</div>
+    <div class="wt-problem-unit">Unit 8</div>
+    <span class="wt-chevron">▾</span>
+  </div>
+  <div class="wt-body" style="--accent:var(--u8)">
+    <div class="wt-question-box" style="border-left-color:var(--u8)">
+      <span class="wt-qlabel">Example Question</span>
+      A buffer is made with 0.200 mol CH₃COOH and 0.150 mol CH₃COONa in 1.00 L. Ka = 1.8×10⁻⁵. (a) Find pH. (b) Find pH after adding 0.050 mol HCl.
+    </div>
+    <div class="wt-steps">
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u8)">1</div><div class="wt-step-content">
+        <h5>(a) Henderson-Hasselbalch directly</h5>
+        <span class="math">pKa = −log(1.8×10⁻⁵) = 4.74</span>
+        <span class="math">pH = pKa + log([A⁻]/[HA]) = 4.74 + log(0.150/0.200)</span>
+        <span class="result">pH = 4.74 + (−0.125) = 4.62</span>
+      </div></div>
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u8)">2</div><div class="wt-step-content">
+        <h5>(b) Adding acid — BCA table first</h5>
+        <p>HCl is a strong acid → reacts completely with conjugate base (CH₃COO⁻).</p>
+        <span class="math">CH₃COO⁻ + H⁺ → CH₃COOH</span>
+        <span class="math">Before: 0.150 mol A⁻,  0.200 mol HA,  + 0.050 mol H⁺</span>
+        <span class="math">After:  0.100 mol A⁻,  0.250 mol HA,  0 mol H⁺</span>
+      </div></div>
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u8)">3</div><div class="wt-step-content">
+        <h5>Apply Henderson-Hasselbalch with new amounts</h5>
+        <span class="math">pH = 4.74 + log(0.100/0.250)</span>
+        <span class="result">pH = 4.74 + (−0.398) = 4.34</span>
+        <div class="frq-tip"><b>FRQ tip:</b> BCA = Before, Change, After. Run BCA first for any strong acid/base addition to a buffer. Then apply H-H to the new amounts. You can use moles directly in H-H (volume cancels).</div>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 20 ── -->
+<div class="wt-problem" id="wt20">
+  <div class="wt-problem-header" onclick="toggleWT('wt20')">
+    <div class="wt-problem-num" style="background:var(--u8);color:#000">20</div>
+    <div class="wt-problem-title">Titration Curve Problem</div>
+    <div class="wt-problem-unit">Unit 8</div>
+    <span class="wt-chevron">▾</span>
+  </div>
+  <div class="wt-body" style="--accent:var(--u8)">
+    <div class="wt-question-box" style="border-left-color:var(--u8)">
+      <span class="wt-qlabel">Example Question</span>
+      25.0 mL of 0.100 M acetic acid (Ka=1.8×10⁻⁵) is titrated with 0.100 M NaOH. Find pH at: (a) start, (b) half-equivalence point (12.5 mL NaOH added), (c) equivalence point (25.0 mL NaOH added).
+    </div>
+    <div class="wt-steps">
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u8)">1</div><div class="wt-step-content">
+        <h5>(a) Start — weak acid only</h5>
+        <p>Use ICE table with Ka.</p>
+        <span class="math">x² / 0.100 = 1.8×10⁻⁵  →  x = 1.34×10⁻³ M</span>
+        <span class="result">pH = 2.87</span>
+      </div></div>
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u8)">2</div><div class="wt-step-content">
+        <h5>(b) Half-equivalence point</h5>
+        <p>Half the acid has been neutralized → [HA] = [A⁻]. H-H equation: pH = pKa + log(1) = pKa.</p>
+        <span class="result">pH = pKa = 4.74</span>
+        <p>This is the key shortcut — at half-equivalence, pH = pKa always.</p>
+      </div></div>
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u8)">3</div><div class="wt-step-content">
+        <h5>(c) Equivalence point — all HA converted to A⁻</h5>
+        <p>Now you have 0.00250 mol CH₃COO⁻ in 50.0 mL = 0.0500 M. This is a weak base — use Kb.</p>
+        <span class="math">Kb = Kw/Ka = 1×10⁻¹⁴ / 1.8×10⁻⁵ = 5.56×10⁻¹⁰</span>
+        <span class="math">x² / 0.0500 = 5.56×10⁻¹⁰  →  x = [OH⁻] = 5.27×10⁻⁶</span>
+        <span class="math">pOH = 5.28  →  pH = 14 − 5.28 = 8.72</span>
+        <span class="result">pH = 8.72 (basic at equivalence point — expected for WA/SB titration)</span>
+        <div class="frq-tip"><b>FRQ tip:</b> For WA + SB titrations, the equivalence point pH is always ABOVE 7 because you're left with the conjugate base of the weak acid, which is basic. Graders expect you to state this explicitly.</div>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 21 ── -->
+<div class="wt-problem" id="wt21">
+  <div class="wt-problem-header" onclick="toggleWT('wt21')">
+    <div class="wt-problem-num" style="background:var(--u9);color:#000">21</div>
+    <div class="wt-problem-title">Galvanic Cell + E°cell</div>
+    <div class="wt-problem-unit">Unit 9</div>
+    <span class="wt-chevron">▾</span>
+  </div>
+  <div class="wt-body" style="--accent:var(--u9)">
+    <div class="wt-question-box" style="border-left-color:var(--u9)">
+      <span class="wt-qlabel">Example Question</span>
+      Given: Zn²⁺/Zn E° = −0.76 V; Cu²⁺/Cu E° = +0.34 V. (a) Write the cell reaction. (b) Calculate E°cell. (c) Is it spontaneous?
+    </div>
+    <div class="wt-steps">
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u9)">1</div><div class="wt-step-content">
+        <h5>(a) Identify cathode and anode</h5>
+        <p>More positive E° is reduced at cathode: Cu²⁺/Cu (+0.34 V) → cathode. Less positive is oxidized at anode: Zn/Zn²⁺ (−0.76 V) → anode.</p>
+        <span class="math">Anode (oxidation): Zn → Zn²⁺ + 2e⁻</span>
+        <span class="math">Cathode (reduction): Cu²⁺ + 2e⁻ → Cu</span>
+        <span class="result">Overall: Zn + Cu²⁺ → Zn²⁺ + Cu</span>
+      </div></div>
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u9)">2</div><div class="wt-step-content">
+        <h5>(b) Calculate E°cell</h5>
+        <span class="math">E°cell = E°cathode − E°anode = +0.34 − (−0.76) = +1.10 V</span>
+        <div class="warn">⚠ Do NOT multiply E° by n when balancing. E° is an intensive property.</div>
+      </div></div>
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u9)">3</div><div class="wt-step-content">
+        <h5>(c) Spontaneity</h5>
+        <p>E°cell = +1.10 V &gt; 0 → <b>spontaneous</b>. This is consistent with ΔG° = −nFE° = negative.</p>
+        <div class="frq-tip"><b>FRQ tip:</b> Always identify anode and cathode explicitly. State direction of electron flow (anode → cathode through wire). State direction of ion migration in the salt bridge. These are separate point-earning statements.</div>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 22 ── -->
+<div class="wt-problem" id="wt22">
+  <div class="wt-problem-header" onclick="toggleWT('wt22')">
+    <div class="wt-problem-num" style="background:var(--u9);color:#000">22</div>
+    <div class="wt-problem-title">ΔG°, K, and E° Connection</div>
+    <div class="wt-problem-unit">Unit 9</div>
+    <span class="wt-chevron">▾</span>
+  </div>
+  <div class="wt-body" style="--accent:var(--u9)">
+    <div class="wt-question-box" style="border-left-color:var(--u9)">
+      <span class="wt-qlabel">Example Question</span>
+      For the Zn/Cu cell above (E°cell = +1.10 V, n = 2), calculate ΔG° and K at 25°C.
+    </div>
+    <div class="wt-steps">
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u9)">1</div><div class="wt-step-content">
+        <h5>Calculate ΔG°</h5>
+        <span class="math">ΔG° = −nFE° = −(2)(96485)(1.10)</span>
+        <span class="result">ΔG° = −2.12×10⁵ J = −212 kJ/mol</span>
+        <p>Negative → spontaneous (confirms E° &gt; 0).</p>
+      </div></div>
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u9)">2</div><div class="wt-step-content">
+        <h5>Calculate K</h5>
+        <span class="math">ΔG° = −RT ln K  →  ln K = −ΔG°/RT = 212000 / (8.314)(298)</span>
+        <span class="math">ln K = 85.6  →  K = e^85.6 ≈ 1.6×10³⁷</span>
+        <span class="result">K = 1.6×10³⁷  (products hugely favored)</span>
+        <div class="frq-tip"><b>FRQ tip:</b> You can also use E°cell = (0.0592/n) log K directly. Both give the same answer. Know both routes.</div>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 23 ── -->
+<div class="wt-problem" id="wt23">
+  <div class="wt-problem-header" onclick="toggleWT('wt23')">
+    <div class="wt-problem-num" style="background:var(--u9);color:#000">23</div>
+    <div class="wt-problem-title">Nernst Equation (Non-Standard Conditions)</div>
+    <div class="wt-problem-unit">Unit 9</div>
+    <span class="wt-chevron">▾</span>
+  </div>
+  <div class="wt-body" style="--accent:var(--u9)">
+    <div class="wt-question-box" style="border-left-color:var(--u9)">
+      <span class="wt-qlabel">Example Question</span>
+      For Zn + Cu²⁺ → Zn²⁺ + Cu, E°cell = +1.10 V, n = 2. Calculate Ecell when [Zn²⁺] = 2.00 M and [Cu²⁺] = 0.100 M at 25°C.
+    </div>
+    <div class="wt-steps">
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u9)">1</div><div class="wt-step-content">
+        <h5>Write Q for the cell reaction</h5>
+        <span class="math">Q = [Zn²⁺] / [Cu²⁺] = 2.00 / 0.100 = 20.0</span>
+        <p>Solids (Zn, Cu) are not included in Q.</p>
+      </div></div>
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u9)">2</div><div class="wt-step-content">
+        <h5>Apply Nernst equation</h5>
+        <span class="math">Ecell = E°cell − (0.0592/n) log Q</span>
+        <span class="math">Ecell = 1.10 − (0.0592/2) log(20.0)</span>
+        <span class="math">Ecell = 1.10 − (0.0296)(1.301)</span>
+        <span class="result">Ecell = 1.10 − 0.0385 = 1.06 V</span>
+        <p>Q &gt; 1 → Ecell &lt; E°cell (as expected: concentrations favor reactants less).</p>
+        <div class="frq-tip"><b>FRQ tip:</b> Use log (base 10) with the 0.0592 version at 25°C. Use ln with the full RT/nF version at other temperatures. Make sure Q uses the cell reaction (not a random equation).</div>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 24 ── -->
+<div class="wt-problem" id="wt24">
+  <div class="wt-problem-header" onclick="toggleWT('wt24')">
+    <div class="wt-problem-num" style="background:var(--u9);color:#000">24</div>
+    <div class="wt-problem-title">Electrolysis / Faraday's Law</div>
+    <div class="wt-problem-unit">Unit 9</div>
+    <span class="wt-chevron">▾</span>
+  </div>
+  <div class="wt-body" style="--accent:var(--u9)">
+    <div class="wt-question-box" style="border-left-color:var(--u9)">
+      <span class="wt-qlabel">Example Question</span>
+      A current of 2.50 A is passed through a solution of CuSO₄ for 45.0 minutes. How many grams of Cu are deposited at the cathode?
+    </div>
+    <div class="wt-steps">
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u9)">1</div><div class="wt-step-content">
+        <h5>Convert time to seconds, find total charge</h5>
+        <span class="math">t = 45.0 min × 60 s/min = 2700 s</span>
+        <span class="math">charge = I × t = 2.50 A × 2700 s = 6750 C</span>
+      </div></div>
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u9)">2</div><div class="wt-step-content">
+        <h5>Convert charge to moles of electrons</h5>
+        <span class="math">mol e⁻ = 6750 C / 96485 C/mol = 0.06995 mol</span>
+      </div></div>
+      <div class="wt-step"><div class="wt-step-num" style="background:var(--u9)">3</div><div class="wt-step-content">
+        <h5>Convert mol e⁻ to mol Cu using half-reaction</h5>
+        <span class="math">Cu²⁺ + 2e⁻ → Cu  (2 mol e⁻ per mol Cu)</span>
+        <span class="math">mol Cu = 0.06995 / 2 = 0.03498 mol</span>
+        <span class="result">mass Cu = 0.03498 × 63.5 g/mol = 2.22 g</span>
+        <div class="frq-tip"><b>FRQ tip:</b> Chain: A × s → coulombs → mol e⁻ → mol product (via half-reaction ratio) → grams. Write every step. This problem type shows up almost every year.</div>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 25 ── -->
+<div class="wt-problem" id="wt25">
+  <div class="wt-problem-header" onclick="toggleWT('wt25')">
+    <div class="wt-problem-num" style="background:#c084fc;color:#000">25</div>
+    <div class="wt-problem-title">FRQ Justification Framework</div>
+    <div class="wt-problem-unit">All Units</div>
+    <span class="wt-chevron">▾</span>
+  </div>
+  <div class="wt-body" style="--accent:#c084fc">
+    <div class="wt-question-box" style="border-left-color:#c084fc">
+      <span class="wt-qlabel">How to earn every point on the FRQ</span>
+      This is the single most important section. Most 4s become 5s by writing better justifications, not by knowing more content.
+    </div>
+    <div class="wt-steps">
+      <div class="wt-step"><div class="wt-step-num" style="background:#c084fc">1</div><div class="wt-step-content">
+        <h5>The CLAIM → EVIDENCE → REASONING structure</h5>
+        <p>Every FRQ answer needs all three parts:</p>
+        <span class="math">CLAIM: What happens (the answer)</span>
+        <span class="math">EVIDENCE: The data/formula/value that supports it</span>
+        <span class="math">REASONING: WHY that evidence leads to that claim</span>
+        <div class="frq-tip">
+          <b>Bad answer (0 pts):</b> "The rate increases."<br><br>
+          <b>Good answer (full pts):</b> "The rate increases because increasing temperature increases the fraction of molecules with kinetic energy greater than or equal to the activation energy Ea, as described by the Arrhenius equation k = Ae^(−Ea/RT). More successful collisions per unit time means a higher rate."
+        </div>
+      </div></div>
+      <div class="wt-step"><div class="wt-step-num" style="background:#c084fc">2</div><div class="wt-step-content">
+        <h5>Justification templates by topic</h5>
+        <p><b>Le Châtelier:</b> "The equilibrium shifts [direction] because [stress]. The system opposes the stress by [mechanism], which [consequence to concentrations]."</p>
+        <p><b>Spontaneity:</b> "The reaction is [spontaneous/nonspontaneous] because ΔG° = ΔH° − TΔS° = [value] kJ, which is [negative/positive]."</p>
+        <p><b>IMFs:</b> "[Molecule X] has a higher boiling point because it experiences [specific IMF], which requires more energy to overcome. [Molecule Y] only has [weaker IMF]."</p>
+        <p><b>Acid strength:</b> "[Acid A] is stronger because [structural reason — bond strength, EN, resonance], making it more likely to donate a proton."</p>
+      </div></div>
+      <div class="wt-step"><div class="wt-step-num" style="background:#c084fc">3</div><div class="wt-step-content">
+        <h5>What graders actually look for</h5>
+        <ul style="font-size:12px;line-height:1.8;padding-left:14px;list-style:disc">
+          <li>State symbols: (aq), (s), (g), (l) — check these every time</li>
+          <li>Specific chemical names/formulas, not vague words</li>
+          <li>Show math setup AND answer with units</li>
+          <li>If you make an error, keep going — subsequent steps can still earn points</li>
+          <li>Don't contradict yourself — a wrong claim that you then correct won't get you the point</li>
+          <li>Write legibly — graders can't give credit for what they can't read</li>
+        </ul>
+        <div class="frq-tip"><b>Most common point losses:</b> (1) Missing "because" — just stating a fact. (2) Unit errors in ΔG = ΔH − TΔS (J vs kJ). (3) Forgetting to convert °C to K. (4) Not showing ICE table setup. (5) Saying "equilibrium shifts right" without explaining what happens to concentrations as a result.</div>
+      </div></div>
+    </div>
+    <div class="wt-frq-banner">
+      <b>The 12-day rule:</b> Every practice FRQ you write, cover your answer and ask: "Did I explain WHY, or did I just state WHAT?" If you only stated what, rewrite it. Do this consistently for 12 days and your FRQ score will improve more than anything else you can do.
+    </div>
+  </div>
+</div>
+
+</div><!-- /wt-content -->
+</div><!-- /wt-layout -->
+</div><!-- /wt-wrap -->
+</div><!-- /view-walkthrough -->
+
+<script>
+// ═══════════════════════════════════════════
+//  FLASHCARD DATA
+// ═══════════════════════════════════════════
+const COLORS = {1:'#4fc3f7',2:'#a78bfa',3:'#34d399',4:'#f97316',5:'#fb7185',6:'#facc15',7:'#86efac',8:'#c084fc',9:'#f9a8d4'};
+const UNAMES = {1:'Atomic Structure',2:'Chemical Bonds',3:'IMFs & Matter',4:'Reactions',5:'Kinetics',6:'Thermodynamics',7:'Equilibrium',8:'Acid-Base',9:'Electrochemistry'};
+
+const CARDS = [
+  // U1
+  {u:1,q:"What is Coulomb's Law and what does it mean for atomic structure?",
+   a:`<code>Fₑ = kq₁q₂ / r²</code><ul><li>Greater charge → greater attraction</li><li>Closer distance → greater attraction</li><li>Explains why core e⁻ are harder to remove than valence e⁻</li><li>Why smaller atoms have higher IE and EN</li></ul>`},
+  {u:1,q:"State Aufbau, Pauli, and Hund's Rule. What are the exceptions?",
+   a:`<ul><li><b>Aufbau:</b> fill orbitals in increasing energy order</li><li><b>Pauli:</b> max 2e⁻ per orbital, opposite spins</li><li><b>Hund's:</b> half-fill degenerate orbitals before pairing</li><li><b>Exceptions:</b> Cr, Mo, Cu, Ag — half/fully-filled d subshell is more stable</li></ul>`},
+  {u:1,q:"What are the five periodic trends and which direction do they increase?",
+   a:`<ul><li><b>Atomic radius:</b> ↑ down group, ↓ across period</li><li><b>IE:</b> ↓ down, ↑ across (exceptions: Group 2A & 5A)</li><li><b>Electronegativity:</b> same direction as IE</li><li><b>Electron affinity:</b> generally ↑ across (exothermic)</li><li><b>Ionic radius:</b> cations smaller (+), anions larger (−)</li></ul>`},
+  {u:1,q:"How do you calculate moles and molarity?",
+   a:`<code>moles = mass / molar mass</code><code>Molarity (M) = mol solute / L solution</code><ul><li>Empirical formula = smallest whole-number ratio</li><li>Molecular = actual formula</li><li>% abundance: x(m₁) + (1−x)(m₂) = avg atomic mass</li></ul>`},
+  {u:1,q:"What does PES show and how do you read a PES spectrum?",
+   a:`<ul><li>Photoelectron Spectroscopy → shows orbital energy levels</li><li>x-axis = binding energy (high = core, low = valence)</li><li>y-axis = relative number of electrons in that subshell</li><li>Valence e⁻ = low binding energy (easier to remove)</li><li>Core e⁻ = high binding energy (more nuclear attraction)</li></ul>`},
+  // U2
+  {u:2,q:"Compare ionic, covalent, and metallic bonding.",
+   a:`<ul><li><b>Ionic:</b> large ΔEN, metal+nonmetal, transfers e⁻, electrostatic attraction</li><li><b>Covalent (polar):</b> small-medium ΔEN, shares e⁻ unequally</li><li><b>Covalent (nonpolar):</b> ΔEN≈0, shares e⁻ equally</li><li><b>Metallic:</b> sea of delocalized e⁻, good conductor, malleable</li></ul>`},
+  {u:2,q:"What is formal charge and why does it matter?",
+   a:`<code>FC = VE − nonbonding e⁻ − ½(bonding e⁻)</code><ul><li>Structure with FC closest to 0 on all atoms = most stable</li><li>More electronegative atoms should carry negative FC</li><li>Draw ALL resonance structures — delocalized e⁻ = more stable</li></ul>`},
+  {u:2,q:"Give the VSEPR shapes, angles, and hybridization for 2–6 electron domains.",
+   a:`<ul><li>2 domains: Linear, 180°, sp</li><li>3 (0LP): Trig. Planar, 120°, sp²</li><li>3 (1LP): Bent, ~119°, sp²</li><li>4 (0LP): Tetrahedral, 109.5°, sp³</li><li>4 (1LP): Trig. Pyramidal, 107.5°, sp³</li><li>4 (2LP): Bent, 104.5°, sp³</li><li>5 (0LP): Trig. Bipyramidal, 90°/120°, sp³d</li><li>6 (0LP): Octahedral, 90°, sp³d²</li><li>6 (2LP): Square Planar, 90°, sp³d²</li></ul>`},
+  {u:2,q:"What is the relationship between bond order, length, and energy?",
+   a:`<ul><li>Single = 1σ; Double = 1σ+1π; Triple = 1σ+2π</li><li>↑ bond order → ↓ bond length → ↑ bond energy</li><li>Lone pairs repel more than bonding pairs → compress angles below ideal</li></ul>`},
+  {u:2,q:"Compare the four types of crystalline solids.",
+   a:`<ul><li><b>Ionic:</b> high MP, brittle, conducts when dissolved or melted</li><li><b>Metallic:</b> conducts as solid, malleable, lustrous</li><li><b>Covalent network:</b> very high MP, poor conductor (diamond, SiO₂)</li><li><b>Molecular:</b> low MP, poor conductor, held together by IMFs</li></ul>`},
+  // U3
+  {u:3,q:"List the four IMFs weakest to strongest and state when each occurs.",
+   a:`<ul><li><b>LDF:</b> ALL molecules; larger/more electrons = stronger</li><li><b>Dipole-Dipole:</b> polar molecules only</li><li><b>H-Bonding:</b> H bonded directly to N, O, or F</li><li><b>Ion-Dipole:</b> ion + polar molecule; strongest (important in solutions)</li></ul>Stronger IMF → higher BP, viscosity, surface tension.`},
+  {u:3,q:"State the Ideal Gas Law, Combined Gas Law, and Dalton's Law.",
+   a:`<code>PV = nRT  (R = 0.0821 L·atm/mol·K, T in Kelvin)</code><code>P₁V₁/T₁ = P₂V₂/T₂</code><code>P_total = P₁ + P₂ + …  ;  Pₐ = Xₐ × P_total</code><ul><li>STP: 0°C (273 K), 1 atm → 22.4 L/mol</li></ul>`},
+  {u:3,q:"State the 5 postulates of KMT and what KE_avg equals.",
+   a:`<ul><li>Gas molecules in constant, random motion</li><li>Elastic collisions — no net energy loss</li><li>No IMFs between ideal gas particles</li><li>Particle volume negligible vs container</li><li><b>KE_avg = (3/2)RT</b> — proportional to T only</li></ul>Lighter molecules move faster; Maxwell-Boltzmann: higher T → curve shifts right, flattens.`},
+  {u:3,q:"When and why do real gases deviate from ideal behavior?",
+   a:`<ul><li><b>High pressure:</b> molecules take up real space → actual V > ideal V</li><li><b>Low temperature:</b> attractions become significant → actual P < ideal P</li><li>Noble gases and small nonpolar molecules behave most ideally</li><li>van der Waals equation corrects for molecular volume and attractions</li></ul>`},
+  // U4
+  {u:4,q:"How do you balance a redox reaction in acidic vs basic solution?",
+   a:`<b>Acidic:</b><ul><li>Split into half-reactions; balance non-O/H atoms</li><li>Balance O with H₂O; balance H with H⁺; balance charge with e⁻</li><li>Equalize e⁻ transferred; add half-reactions</li></ul><b>Basic:</b> Do acidic method first, then add OH⁻ to both sides to neutralize all H⁺.`},
+  {u:4,q:"What are the oxidation number rules?",
+   a:`<ul><li>Pure element = 0</li><li>Monatomic ion = its charge</li><li>O = −2 (except peroxides = −1)</li><li>H = +1 (except metal hydrides = −1)</li><li>F = −1 always</li><li>Sum in neutral compound = 0</li><li>Sum in polyatomic ion = ion charge</li></ul>`},
+  {u:4,q:"What is stoichiometry and how do you find percent yield?",
+   a:`<ul><li>Use mole ratio from balanced equation to convert between substances</li><li>Limiting reagent: runs out first → determines theoretical yield</li><li>Excess reagent: leftover after reaction</li></ul><code>% yield = (actual yield / theoretical yield) × 100</code>`},
+  {u:4,q:"How do you write a net ionic equation?",
+   a:`<ul><li>Write molecular equation; break strong acids, strong bases, and soluble salts into ions</li><li>Weak acids/bases remain as molecules</li><li>Cancel spectator ions (appear identically on both sides)</li><li>Result = net ionic equation showing only what actually reacts</li></ul>`},
+  // U5
+  {u:5,q:"Write the rate law. What determines reaction order?",
+   a:`<code>rate = k[A]ᵐ[B]ⁿ</code><ul><li>Orders m, n come from EXPERIMENT, not coefficients</li><li>Zero order: rate independent of [A]; k units = M/s</li><li>First order: rate ∝ [A]; k units = s⁻¹</li><li>Second order: rate ∝ [A]²; k units = M⁻¹s⁻¹</li></ul>`},
+  {u:5,q:"Give the integrated rate law and half-life for each order.",
+   a:`<ul><li><b>Zero:</b> [A]=[A]₀−kt ; plot [A] vs t ; t½=[A]₀/2k</li><li><b>First:</b> ln[A]=ln[A]₀−kt ; plot ln[A] vs t ; t½=0.693/k (constant!)</li><li><b>Second:</b> 1/[A]=1/[A]₀+kt ; plot 1/[A] vs t ; t½=1/k[A]₀</li></ul>Determine order: whichever linearized plot gives a straight line.`},
+  {u:5,q:"State the Arrhenius equation and explain what affects reaction rate.",
+   a:`<code>k = Ae^(−Ea/RT)</code><ul><li>Ea = activation energy = energy barrier reactions must overcome</li><li>Higher T → more molecules have energy ≥ Ea → faster rate</li><li>Catalyst: lowers Ea for BOTH forward and reverse equally</li><li>Other factors: ↑ concentration, ↑ surface area, correct orientation</li></ul>`},
+  {u:5,q:"What is a reaction mechanism? What's the difference between intermediates and catalysts?",
+   a:`<ul><li>Mechanism = series of elementary steps; each has a molecularity</li><li>Rate-determining step = slowest → sets the overall rate law</li><li><b>Intermediate:</b> produced in one step, consumed in another; NOT in overall equation</li><li><b>Catalyst:</b> in early step, regenerated later; NOT in overall; appears in rate law</li><li>Proposed mechanism rate law MUST match experimental rate law</li></ul>`},
+  // U6
+  {u:6,q:"Write the Gibbs Free Energy equation and explain all four ΔH/ΔS sign combinations.",
+   a:`<code>ΔG° = ΔH° − TΔS°</code><ul><li>−ΔH, +ΔS → always spontaneous (any T)</li><li>+ΔH, −ΔS → never spontaneous</li><li>−ΔH, −ΔS → spontaneous only at LOW temperature</li><li>+ΔH, +ΔS → spontaneous only at HIGH temperature</li></ul>ΔG<0 spontaneous; ΔG=0 equilibrium; ΔG>0 nonspontaneous.`},
+  {u:6,q:"State Hess's Law and the Standard Enthalpy of Formation formula.",
+   a:`<code>ΔH°rxn = ΣΔH°f(products) − ΣΔH°f(reactants)</code><ul><li>ΔH is a state function — only initial & final states matter</li><li>Reverse rxn → flip sign of ΔH</li><li>Multiply rxn → multiply ΔH by same factor</li><li>Add rxns → add ΔH values</li><li>ΔH°f for elements in standard state = 0</li></ul>`},
+  {u:6,q:"What is entropy and when is ΔS positive?",
+   a:`<ul><li>S = measure of disorder/energy dispersal/microstates</li><li>+ΔS: gas > liquid > solid (more disorder)</li><li>+ΔS: more moles of gas produced</li><li>+ΔS: dissolving most solid solutes in water</li><li>+ΔS: increasing temperature</li><li>ΔS°rxn = ΣS°(products) − ΣS°(reactants)</li></ul>`},
+  {u:6,q:"How does calorimetry work for both coffee cup and bomb calorimeters?",
+   a:`<code>q = mcΔT  (c_water = 4.184 J/g·°C)</code><code>q_rxn = −q_solution = −mcΔT</code><ul><li>Coffee cup: constant pressure → measures ΔH directly</li><li>Bomb calorimeter: constant volume → measures q_v</li><li>Exothermic: T of solution rises; q_rxn is negative</li></ul>`},
+  // U7
+  {u:7,q:"Write the equilibrium expression. State three key rules about K.",
+   a:`<code>Kc = [C]^c[D]^d / [A]^a[B]^b</code><ul><li>K changes ONLY with temperature (not concentration, pressure, or catalyst)</li><li>Solids and pure liquids are NOT included in K or Q</li><li>K>>1 → products favored; K<<1 → reactants favored; K≈1 → roughly equal</li><li>Dynamic equilibrium: forward rate = reverse rate (reaction still occurring)</li></ul>`},
+  {u:7,q:"How do ICE tables work and when can you use the small-x approximation?",
+   a:`<ul><li>I = initial concentrations</li><li>C = change: use stoich coefficients as multipliers for x (±)</li><li>E = equilibrium: substitute into K expression</li><li>Use coefficients BOTH as exponents in K AND as x-multipliers in ICE</li><li>Drop x when x/[A]₀ < 5% → small-x approximation</li></ul>`},
+  {u:7,q:"State Le Châtelier's Principle and list every possible stress.",
+   a:`Equilibrium shifts to oppose the applied stress:<ul><li>↑ reactant → shift right; ↑ product → shift left</li><li>↑ T: exothermic rxn → shift left; endothermic → shift right</li><li>↑ P / ↓ V → shift toward fewer moles of gas</li><li>↓ P / ↑ V → shift toward more moles of gas</li><li>Catalyst → NO shift (speeds up both directions equally)</li><li>Inert gas at constant V → NO effect</li></ul>`},
+  {u:7,q:"Explain Ksp and the common ion effect.",
+   a:`<code>Ksp = [cation]^x × [anion]^y</code><ul><li>ICE: concentrations START at zero; coefficients = exponents AND x-multipliers</li><li>Ex: AB₂ ⇌ A²⁺ + 2B⁻ → Ksp = (x)(2x)² = 4x³</li><li>Common ion: adding a shared ion → shifts equilibrium left → ↓ solubility</li><li>Acidic solution → ↑ solubility of basic salts (H⁺ consumes anion)</li></ul>`},
+  {u:7,q:"How do you manipulate K when combining or modifying reactions?",
+   a:`<ul><li>Multiply reaction by n → K becomes Kⁿ ; ΔH becomes n·ΔH</li><li>Reverse reaction → K becomes 1/K ; ΔH becomes −ΔH</li><li>Add reactions → K₁ × K₂ ; ΔH₁ + ΔH₂</li></ul>This is the equilibrium equivalent of Hess's Law.`},
+  // U8
+  {u:8,q:"Write all pH/pOH equations. List strong acids and strong bases.",
+   a:`<code>pH = −log[H₃O⁺]  ;  pOH = −log[OH⁻]  ;  pH + pOH = 14</code><code>Kw = [H₃O⁺][OH⁻] = 1×10⁻¹⁴ @ 25°C</code><b>Strong acids:</b> HCl, HBr, HI, HNO₃, H₂SO₄, HClO₃, HClO₄<br><b>Strong bases:</b> NaOH, KOH, LiOH, Ca(OH)₂, Ba(OH)₂, Sr(OH)₂`},
+  {u:8,q:"Write Ka and Kb expressions. What is the conjugate pair relationship?",
+   a:`<code>Ka = [H₃O⁺][A⁻] / [HA]</code><code>Kb = [OH⁻][HB⁺] / [B]</code><code>Ka × Kb = Kw = 1×10⁻¹⁴  (conjugate acid-base pair)</code><ul><li>pKa = −log Ka; smaller pKa = stronger acid</li><li>Weak → ICE table; % ionization = [H⁺]eq/[HA]₀ × 100</li></ul>`},
+  {u:8,q:"Write Henderson-Hasselbalch and explain how buffers work.",
+   a:`<code>pH = pKa + log([A⁻]/[HA])</code><code>pOH = pKb + log([conj. acid]/[B])</code><ul><li>Buffer = weak acid + conjugate base in solution</li><li>Resists pH change when small amounts of acid/base added</li><li>Max buffering capacity: pH = pKa, when [HA] = [A⁻]</li><li>More conj. base → ↑ capacity for acid; More conj. acid → ↑ for base</li></ul>`},
+  {u:8,q:"Describe the four titration combinations and how to approach each.",
+   a:`<ul><li><b>SA + SB:</b> stoichiometry (BCA) only</li><li><b>WA + SB:</b> BCA → ICE → Henderson-Hasselbalch</li><li><b>WB + SA:</b> BCA → ICE → H-H with Kb/pOH</li><li><b>WA + WB:</b> BCA → ICE</li></ul>Equivalence: MₐVₐ = M_bV_b. Half-equivalence point: pH = pKa. Indicator: choose one with pKa ≈ equiv. point pH ± 1.`},
+  {u:8,q:"What structural features make an acid stronger?",
+   a:`<ul><li><b>Bond strength:</b> stronger H-X bond → weaker acid; HF < HCl < HBr < HI (going down)</li><li><b>Electronegativity:</b> more EN atom on O-H → weaker O-H bond → stronger acid (going across)</li><li><b>Oxyacids:</b> more O atoms → more EN → weaker O-H → stronger acid</li><li><b>Resonance:</b> stabilizes conjugate base → stronger acid</li></ul>`},
+  // U9
+  {u:9,q:"Describe a galvanic cell: anode, cathode, electron flow, and salt bridge.",
+   a:`<ul><li>Spontaneous redox reaction → generates electrical energy</li><li><b>Anode:</b> oxidation, negative electrode (An Ox)</li><li><b>Cathode:</b> reduction, positive electrode (Red Cat)</li><li>Electrons flow: anode → wire → cathode</li><li>Salt bridge: cations migrate toward cathode; anions toward anode</li><li>Salt bridge maintains electrical neutrality in both half-cells</li></ul>`},
+  {u:9,q:"How do you calculate E°cell? What does its sign mean?",
+   a:`<code>E°cell = E°cathode − E°anode</code><ul><li>E°cell > 0 → spontaneous (galvanic cell)</li><li>E°cell < 0 → nonspontaneous (electrolytic cell)</li><li>E° is intensive → do NOT multiply by n when scaling reactions</li><li>More positive standard reduction potential → stronger oxidizing agent</li></ul>`},
+  {u:9,q:"Connect ΔG°, K, and E°cell — write all three relationships.",
+   a:`<code>ΔG° = −nFE°cell</code><code>ΔG° = −RT ln K</code><code>E°cell = (RT/nF) ln K  ≈  (0.0592/n) log K  @ 25°C</code><ul><li>F = 96,485 C/mol; n = moles of e⁻ transferred</li><li>Positive E° ↔ negative ΔG° ↔ K > 1 → all equivalent: spontaneous</li></ul>`},
+  {u:9,q:"Write and explain the Nernst equation.",
+   a:`<code>Ecell = E°cell − (0.0592/n) log Q  @ 25°C</code><ul><li>Use when concentrations ≠ 1 M (non-standard conditions)</li><li>As Q increases → Ecell decreases → approaches equilibrium</li><li>At equilibrium: Ecell = 0, Q = K</li><li>Batteries: as reactants consumed, Q rises → voltage drops</li></ul>`},
+  {u:9,q:"How do electrolytic cells work? State Faraday's Law.",
+   a:`<code>mol e⁻ = (current × time) / F = (A × s) / 96485</code><ul><li>Non-spontaneous → requires external electrical energy</li><li>Anode = oxidation, positive; Cathode = reduction, negative ← opposite signs vs galvanic</li><li>1 ampere = 1 coulomb / second</li><li>Uses: electroplating, water electrolysis, metal purification</li></ul>`},
+];
+
+// ═══════════════════════════════════════════
+//  STATE
+// ═══════════════════════════════════════════
+let filter = 'all';
+let deck = [];        // indices into CARDS
+let idx = 0;
+let flipped = false;
+let ratings = {};     // CARDS index → 'got'|'iffy'|'miss'
+
+function buildDeck() {
+  deck = [];
+  CARDS.forEach((c, i) => {
+    if (filter === 'all') deck.push(i);
+    else if (filter === 'weak') { if (ratings[i] !== 'got') deck.push(i); }
+    else if (c.u === filter) deck.push(i);
+  });
+  idx = 0; flipped = false;
+}
+
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+}
+
+// ═══════════════════════════════════════════
+//  RENDER
+// ═══════════════════════════════════════════
+function render() {
+  if (idx >= deck.length) { showDone(); return; }
+  hideDone();
+
+  const c = CARDS[deck[idx]];
+  const col = COLORS[c.u];
+
+  // Stripe color
+  document.getElementById('fc-stripe-f').style.background = col;
+  document.getElementById('fc-stripe-b').style.background = col;
+
+  // Unit pill
+  const pill = document.getElementById('fc-pill');
+  pill.textContent = `Unit ${c.u} · ${UNAMES[c.u]}`;
+  pill.style.color = col;
+  pill.style.background = col + '1a';
+
+  // Answer color
+  document.querySelectorAll('.fc-ans code').forEach(el => el.style.color = col);
+
+  document.getElementById('fc-q').textContent = c.q;
+  document.getElementById('fc-ans').innerHTML = c.a;
+
+  // Apply color to code tags in answer after setting innerHTML
+  document.querySelectorAll('#fc-ans code').forEach(el => el.style.color = col);
+
+  // Un-flip
+  if (flipped) {
+    document.getElementById('fc-inner').classList.remove('flipped');
+    flipped = false;
+  }
+
+  // Hide rating
+  document.getElementById('fc-rating').classList.remove('show');
+
+  // Counter + progress bar
+  document.getElementById('fc-counter').textContent = `${idx + 1} / ${deck.length}`;
+  document.getElementById('fc-bar').style.width = (idx / deck.length * 100) + '%';
+
+  // Nav buttons
+  document.getElementById('btn-prev').disabled = idx === 0;
+  document.getElementById('btn-next').disabled = false;
+
+  updateScores();
+}
+
+function doFlip() {
+  if (idx >= deck.length) return;
+  flipped = !flipped;
+  document.getElementById('fc-inner').classList.toggle('flipped', flipped);
+  if (flipped) document.getElementById('fc-rating').classList.add('show');
+  else document.getElementById('fc-rating').classList.remove('show');
+  // Re-apply color to code after flip
+  const col = COLORS[CARDS[deck[idx]].u];
+  document.querySelectorAll('#fc-ans code').forEach(el => el.style.color = col);
+}
+
+function goNext() {
+  if (idx < deck.length - 1) { idx++; flipped = false; render(); }
+  else showDone();
+}
+
+function goPrev() {
+  if (idx > 0) { idx--; flipped = false; render(); }
+}
+
+function doRate(r) {
+  const ci = deck[idx];
+  ratings[ci] = r;
+  updateScores();
+  setTimeout(goNext, 260);
+}
+
+function updateScores() {
+  const vals = Object.values(ratings);
+  document.getElementById('sg').textContent = vals.filter(v=>v==='got').length;
+  document.getElementById('si').textContent = vals.filter(v=>v==='iffy').length;
+  document.getElementById('sm').textContent = vals.filter(v=>v==='miss').length;
+}
+
+// ═══════════════════════════════════════════
+//  DONE SCREEN
+// ═══════════════════════════════════════════
+function showDone() {
+  document.getElementById('fc-inner').closest('.fc-scene').style.visibility = 'hidden';
+  document.getElementById('fc-rating').classList.remove('show');
+  document.getElementById('fc-nav').style.display = 'none';
+  document.getElementById('fc-done').style.display = 'block';
+  document.getElementById('fc-bar').style.width = '100%';
+  document.getElementById('fc-counter').textContent = `${deck.length} / ${deck.length}`;
+
+  const vals = Object.values(ratings);
+  const g = vals.filter(v=>v==='got').length;
+  const i = vals.filter(v=>v==='iffy').length;
+  const m = vals.filter(v=>v==='miss').length;
+  document.getElementById('dg').textContent = g;
+  document.getElementById('di').textContent = i;
+  document.getElementById('dm').textContent = m;
+
+  const weak = i + m;
+  const bw = document.getElementById('btn-weak-done');
+  bw.style.display = weak > 0 ? 'inline-block' : 'none';
+  bw.textContent = `⚠ Review ${weak} Weak`;
+}
+
+function hideDone() {
+  document.getElementById('fc-inner').closest('.fc-scene').style.visibility = 'visible';
+  document.getElementById('fc-nav').style.display = 'flex';
+  document.getElementById('fc-done').style.display = 'none';
+}
+
+function doRestart() {
+  ratings = {};
+  buildDeck();
+  updateScores();
+  render();
+  hideDone();
+}
+
+function doWeakReview() { setFilter('weak'); }
+
+// ═══════════════════════════════════════════
+//  FILTER & SHUFFLE
+// ═══════════════════════════════════════════
+function setFilter(f) {
+  filter = f;
+  document.querySelectorAll('.fb').forEach(b => b.classList.remove('on'));
+  const cls = f === 'all' ? 'fb-all' : f === 'weak' ? 'fb-weak' : `fb-${f}`;
+  document.querySelector('.' + cls)?.classList.add('on');
+  buildDeck();
+  render();
+  hideDone();
+  if (document.getElementById('view-flashcard').style.display === 'none') showView('flashcard');
+}
+
+function doShuffle() {
+  shuffle(deck);
+  idx = 0; flipped = false;
+  render(); hideDone();
+}
+
+// ═══════════════════════════════════════════
+//  VIEW SWITCHING
+// ═══════════════════════════════════════════
+function showView(v) {
+  document.getElementById('view-reference').style.display   = v === 'reference'   ? 'block' : 'none';
+  document.getElementById('view-flashcard').style.display   = v === 'flashcard'   ? 'block' : 'none';
+  document.getElementById('view-walkthrough').style.display = v === 'walkthrough' ? 'block' : 'none';
+  document.getElementById('btn-ref').classList.toggle('active', v === 'reference');
+  document.getElementById('btn-fc').classList.toggle('active',  v === 'flashcard');
+  document.getElementById('btn-wt').classList.toggle('active',  v === 'walkthrough');
+  if (v === 'flashcard') render();
+}
+
+// ═══════════════════════════════════════════
+//  WALKTHROUGH ACCORDION
+// ═══════════════════════════════════════════
+function toggleWT(id) {
+  const el = document.getElementById(id);
+  el.classList.toggle('open');
+  // highlight sidebar link
+  document.querySelectorAll('.wt-sidebar a').forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+  });
+}
+
+// ═══════════════════════════════════════════
+//  KEYBOARD
+// ═══════════════════════════════════════════
+document.addEventListener('keydown', e => {
+  if (document.getElementById('view-flashcard').style.display === 'none') return;
+  if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); doFlip(); }
+  else if (e.key === 'ArrowRight') goNext();
+  else if (e.key === 'ArrowLeft')  goPrev();
+  else if (e.key === '1' && flipped) doRate('miss');
+  else if (e.key === '2' && flipped) doRate('iffy');
+  else if (e.key === '3' && flipped) doRate('got');
+});
+
+// ═══════════════════════════════════════════
+//  INIT
+// ═══════════════════════════════════════════
+buildDeck();
+</script>
+</body>
+</html>
